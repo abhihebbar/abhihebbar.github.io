@@ -1,0 +1,39 @@
+<div class="wrapper style3">
+  <article id="blog">
+    <header>
+      <h2>Here’s some of my recent posts.</h2>
+    </header>
+    <div class="container">
+      <div class="row">
+      <% page.posts.each(function(post) { %>
+        <div class="4u 12u(mobile)">
+          <article class="box style2">
+            <% if(post['list_image'] != null) {%>
+              <a href="<%- post.permalink %>" class="image featured"><img src="<%- post.list_image %>" alt="" /></a>
+            <% } else if(post['list_icon'] != null){ %>
+              <a href="<%- post.permalink %>" class="image featured"><span class="icon featured-post fa-<%- post.list_icon %>"></span></a>
+            <% } else { %>
+              <a href="<%- post.permalink %>" class="image featured"><span class="icon featured-post fa-comment"></span></a>
+            <% } %>
+            
+            <h3>
+              <a href="<%= post.permalink %>">
+                <% if(post['small-title'] != null) {%>
+                  <%= post['small-title'] %>
+                <% } else { %>
+                  <%= post.title %>
+                <% } %>
+              </a>
+            </h3>
+            <% if(post.tagline != null) {%>
+              <p><%- post.tagline %></p>
+            <% } else { %>
+              <p>Read more</p>
+            <% } %>
+          </article>
+        </div>
+      <% }) %>
+      </div>
+    </div>
+  </article>
+</div>

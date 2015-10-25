@@ -1,0 +1,31 @@
+<article class="post">
+  <section class="box style1">
+    <header>
+      <h1>
+        <%- page.title %>
+      </h1>
+      <span class="sub-head"><%- page.date.format(config.date_format) %></span>
+    </header>
+    <div>
+      <%- page.content %>
+    </div>
+  </section>
+  <% if (page.comments && config.disqus_shortname){ %>
+  <section id="comments" class="box style1">
+  <h3>Comments</h3>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_developer = 1;
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//<%- config.disqus_shortname %>.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <% } %>
+  </div>
+</article>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <%
+  var title = page.title;
+
+  if (is_archive()){
+    title = 'Archives';
+
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = 'Category: ' + page.category;
+  } else if (is_tag()){
+    title = 'Tag: ' + page.tag;
+  }
+  %>
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="/icon.png" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><%- js('js/ie/html5shiv') %><![endif]-->
+  <%- css('css/main') %>
+  <!--[if lte IE 8]><%- css('css/ie8') %><![endif]-->
+  <!--[if lte IE 9]><%- css('css/ie9') %><![endif]-->
+</head>
