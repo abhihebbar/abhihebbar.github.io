@@ -62,7 +62,7 @@ export default function GuitarTabEditor() {
 
           if (lines[string] !== undefined) {
             lines[string][position] =
-              fret === "0" ? "--0--" : `-${fret}-`.padEnd(4, "-");
+              fret === "0" ? "-0--" : `-${fret}-`.padEnd(4, "-");
           }
           pString = string;
         });
