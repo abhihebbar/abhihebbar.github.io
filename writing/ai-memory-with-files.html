@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI memory doesn't need a database. Just files. · Abhi Hebbar</title>
-  <meta name="description" content="How I built a persistent memory system for my AI assistant using plain markdown files.">
+  <title>The AI isn't the problem. The files are. · Abhi Hebbar</title>
+  <meta name="description" content="I've installed OpenClaw twice and given up. Third time, I started with the information system first. Here's what changed.">
   <meta name="theme-color" content="#f7f5f0">
   <link rel="icon" href="../icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,9 +16,10 @@
     .post-wrap h1 { font-family: Newsreader, serif; font-size: 2.2rem; line-height: 1.2; margin-bottom: 0.5rem; }
     .post-meta { color: #888; font-size: 0.85rem; margin-bottom: 2.5rem; }
     .post-body p { font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.4rem; color: #2a2a2a; }
-    .post-body ul { margin: 0 0 1.4rem 1.5rem; }
-    .post-body li { font-size: 1.05rem; line-height: 1.75; margin-bottom: 0.4rem; color: #2a2a2a; }
-    .post-body code { background: #f0ede8; padding: 0.15em 0.4em; border-radius: 3px; font-size: 0.9em; }
+    .post-body h2 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+    .post-body pre { background: #f5f5f5; border-radius: 6px; padding: 1rem 1.2rem; overflow-x: auto; margin-bottom: 1.4rem; }
+    .post-body code { font-family: 'SF Mono', monospace; font-size: 0.88rem; color: #333; }
+    .post-body p code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.88rem; }
     .back-link { display: inline-block; margin-bottom: 2.5rem; color: #888; font-size: 0.9rem; text-decoration: none; }
     .back-link:hover { color: #333; }
   </style>
@@ -38,28 +39,64 @@
   <main class="wrap">
     <div class="post-wrap">
       <a class="back-link" href="../#writing">← Writing</a>
-      <h1>AI memory doesn't need a database. Just files.</h1>
+      <h1>The AI isn't the problem. The files are.</h1>
       <p class="post-meta">March 2026 · AI</p>
 
       <div class="post-body">
-        <p>The thing nobody talks about with personal AI is memory.</p>
+        <p>I've been running <a href="https://openclaw.ai" target="_blank">OpenClaw</a> for a few months — it's a personal AI setup that runs on a server, connects to Telegram, and can do things like send emails, write and commit code, manage files. Not a chatbot you open occasionally. Something that's always on.</p>
 
-        <p>Every session, the model wakes up fresh. No idea who you are, what you care about, what happened yesterday. You either re-explain everything every time, or you build a memory system.</p>
+        <p>The capability surprised me. The inconsistency frustrated me more.</p>
 
-        <p>I built one. It's just files.</p>
+        <p>Sometimes it remembers a preference I mentioned two days ago. Sometimes it contradicts something we settled three messages back. No pattern to it. Just enough randomness to make it hard to rely on.</p>
 
-        <ul>
-          <li><code>MEMORY.md</code> — long-term. Distilled facts about me, my preferences, how I work. The AI reads this at the start of every session.</li>
-          <li><code>memory/YYYY-MM-DD.md</code> — daily logs. Raw notes from each session. What happened, what was decided, what to follow up on.</li>
-          <li><code>SOUL.md</code> — who the AI is. Personality, working style, how it should behave. This one it can edit itself when it learns something.</li>
-          <li><code>FOLLOWUPS.md</code> — things I need to do. The AI runs a heartbeat check periodically, reads this file, nudges me if something needs attention.</li>
-        </ul>
+        <p>What I eventually figured out is that the inconsistency isn't really the AI's fault. It's an information problem.</p>
 
-        <p>The whole system is maybe 10 files. But because it's just markdown on a server, it's persistent across sessions, editable by both me and the AI, and under my control completely.</p>
+        <p>The model reads a set of files at the start of each session. What it knows about you comes from those files — not from some persistent memory layer, not from conversation history. Just files. When those files are clean and current, the sessions are good. When they're messy, outdated, or contradictory, the sessions reflect that.</p>
 
-        <p>No vendor lock-in. No "memory" feature that disappears when you change models. Just files.</p>
+        <h2>The file structure I landed on</h2>
 
-        <p>The simplest solutions are usually the right ones.</p>
+        <p>There are five files that matter:</p>
+
+        <p><code>MEMORY.md</code> — the long-term facts. Who I am, how I work, what my projects are, shortcut conventions. Kept deliberately short. The moment it bloats with task-specific detail, it stops working well.</p>
+
+        <p><code>SOUL.md</code> — who the AI is. Personality, working style, how it should behave. The AI can edit this itself when it learns something about how I like to work.</p>
+
+        <p><code>USER.md</code> — a short note about me for context. Name, timezone, how I want responses. One page max.</p>
+
+        <p><code>memory/YYYY-MM-DD.md</code> — daily logs. Raw notes from each session. What happened, what was decided, what to follow up on. The AI writes these, not me.</p>
+
+        <p><code>FOLLOWUPS.md</code> — things I need to do. The AI checks this and nudges me if something needs attention.</p>
+
+        <p>The whole thing is maybe 10 files. Plain markdown on the same server.</p>
+
+        <h2>What breaks it</h2>
+
+        <p><strong>Duplication.</strong> The same thing written slightly differently in two places — the AI picks one and ignores the other, and you never know which.</p>
+
+        <p><strong>Staleness.</strong> Instructions that made sense three weeks ago but no longer apply. The AI has no way to know they're outdated.</p>
+
+        <p><strong>Mixing concerns.</strong> Task-specific detail (how a particular project works, what tools it uses) sitting in the general memory file alongside personal preferences. I pull task detail into separate project folders now. <code>MEMORY.md</code> is only for things that apply to every session.</p>
+
+        <h2>The prompts I use to maintain it</h2>
+
+        <p>To save something to memory:</p>
+        <pre><code>++ remember that [thing]</code></pre>
+
+        <p>To update the personality file:</p>
+        <pre><code>>> [update to how I want you to behave]</code></pre>
+
+        <p>When a session goes wrong, instead of just moving on:</p>
+        <pre><code>Something went wrong in that last session. What context were you missing? What should be in the files so this doesn't happen again?</code></pre>
+
+        <p>That last one is the most useful. The AI will usually tell you exactly what was missing — and then you can write it down properly.</p>
+
+        <h2>What changed</h2>
+
+        <p>The current setup is three days old. Before this, I'd installed and uninstalled twice — sessions were too chaotic to be useful.</p>
+
+        <p>The AI didn't change. The files did.</p>
+
+        <p>I'm still figuring out the right things to keep versus discard. But the basic shape works: short files, each doing one job, maintained as you go. Treat it like a handoff document you're leaving for yourself.</p>
       </div>
     </div>
   </main>

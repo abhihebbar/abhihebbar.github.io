@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Why your personal AI should be private by default · Abhi Hebbar</title>
-  <meta name="description" content="Nginx + mTLS + Lightsail. 20 minutes of setup. The right way to run a personal AI.">
+  <title>How I set up a private corner of the internet for my AI · Abhi Hebbar</title>
+  <meta name="description" content="Nginx + mTLS on a $5 Lightsail instance. What I did, why, and how you can do it with or without a domain.">
   <meta name="theme-color" content="#f7f5f0">
   <link rel="icon" href="../icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,21 +36,39 @@
   <main class="wrap">
     <div class="post-wrap">
       <a class="back-link" href="../#writing">← Writing</a>
-      <h1>Why your personal AI should be private by default</h1>
+      <h1>How I set up a private corner of the internet for my AI</h1>
       <p class="post-meta">March 2026 · Infrastructure</p>
 
       <div class="post-body">
-        <p>I've been building a setup where my AI assistant has its own private corner of the internet.</p>
+        <p>I've been building a setup where my AI assistant has its own private corner of the internet. This is what I did and what I found.</p>
 
-        <p>Here's how it works: a $5 Lightsail instance runs Nginx with mTLS — mutual TLS, meaning only devices with the right certificate can even see the page. My phone has a certificate. Random internet crawlers don't. The AI lives behind that.</p>
+        <p>The setup: a $5 Lightsail instance running Nginx with mTLS — mutual TLS, meaning only devices with the right certificate can reach the page. My phone has a certificate installed. Random internet traffic doesn't get through. The AI lives behind that.</p>
 
-        <p>Then there's a <code>/public/</code> folder — intentionally open, no auth. That's where things like email signatures and shared assets live. Everything else? Locked down.</p>
+        <p>There's also a <code>/public/</code> folder — intentionally open, no auth. That's where things like email signatures and shared assets live. Everything else requires the cert.</p>
 
-        <p>The interesting part isn't the tech stack — it's the design decision. You're building an AI system that handles personal context, manages files, sends emails on your behalf. That should be private by default, with deliberate exceptions. Not public by default with locks slapped on.</p>
+        <p>What I noticed is that the interesting decision wasn't really about the tech — it was about the default. My AI handles personal context, manages files, sends emails. Starting from "locked down with deliberate exceptions" felt more natural than "public with locks added later." Whether that's the right call for everyone, I don't know. It felt right for me.</p>
 
-        <p>Most "personal AI" setups I see are the opposite. They're hosted somewhere public, maybe behind a password. That's not good enough.</p>
+        <h2>How I set it up — via OpenClaw</h2>
 
-        <p>mTLS is the right primitive here. Worth the 20 minutes of setup.</p>
+        <p>I'm running <a href="https://openclaw.ai" target="_blank">OpenClaw</a> as my AI setup — it connects to Telegram as the interface and runs on the same VPS. What I found is that I didn't need to figure out most of the commands myself. I just described what I wanted and it worked through it.</p>
+
+        <p>The rough sequence of prompts I used (copy-paste friendly):</p>
+
+        <p><strong>Step 1 — Get Nginx and a server cert set up.</strong> If you have a domain:</p>
+        <pre><code>I have a domain yourdomain.com pointing to this VPS. Install Nginx if not already installed, get a Let's Encrypt cert with Certbot, and set up a basic HTTPS site serving from ~/workspace/www/yourdomain.com</code></pre>
+
+        <p>Without a domain, just swap the last part:</p>
+        <pre><code>No domain — just use the server's IP. Generate a self-signed cert and set up Nginx to serve HTTPS from ~/workspace/www/mysite using that cert.</code></pre>
+
+        <p><strong>Step 2 — Set up mTLS so only my devices can access it.</strong></p>
+        <pre><code>Set up mTLS on this Nginx site. Generate a local CA, issue a client certificate for my phone, bundle it as a .p12 file I can install. Update the Nginx config to require the client cert. Tell me how to install the .p12 on iOS.</code></pre>
+
+        <p>It generated the certs, updated the Nginx config, and gave me exact steps for installing the profile on my phone. I emailed myself the <code>.p12</code>, tapped it on iOS, and that was it.</p>
+
+        <p><strong>Step 3 — Set up a /public/ folder for things that should be open.</strong></p>
+        <pre><code>Add a /public/ route to the same Nginx site that doesn't require the client cert — for things like email signature images that need to be publicly accessible.</code></pre>
+
+        <p>That's roughly it. The domain is optional — without one you get a browser warning on first open (because the cert is self-signed) but everything else works the same way. The client cert is what actually controls access either way.</p>
       </div>
     </div>
   </main>
