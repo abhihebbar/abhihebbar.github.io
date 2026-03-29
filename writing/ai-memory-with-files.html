@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI memory doesn't need a database. Just files. · Abhi Hebbar</title>
+  <meta name="description" content="How I built a persistent memory system for my AI assistant using plain markdown files.">
+  <meta name="theme-color" content="#f7f5f0">
+  <link rel="icon" href="../icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/home.css?v=20260329">
+  <style>
+    .post-wrap { max-width: 680px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+    .post-wrap h1 { font-family: Newsreader, serif; font-size: 2.2rem; line-height: 1.2; margin-bottom: 0.5rem; }
+    .post-meta { color: #888; font-size: 0.85rem; margin-bottom: 2.5rem; }
+    .post-body p { font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.4rem; color: #2a2a2a; }
+    .post-body ul { margin: 0 0 1.4rem 1.5rem; }
+    .post-body li { font-size: 1.05rem; line-height: 1.75; margin-bottom: 0.4rem; color: #2a2a2a; }
+    .post-body code { background: #f0ede8; padding: 0.15em 0.4em; border-radius: 3px; font-size: 0.9em; }
+    .back-link { display: inline-block; margin-bottom: 2.5rem; color: #888; font-size: 0.9rem; text-decoration: none; }
+    .back-link:hover { color: #333; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="../">Abhi Hebbar</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../#work">Work</a>
+        <a href="../#writing">Writing</a>
+        <a href="../#elsewhere">Elsewhere</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="post-wrap">
+      <a class="back-link" href="../#writing">← Writing</a>
+      <h1>AI memory doesn't need a database. Just files.</h1>
+      <p class="post-meta">March 2026 · AI</p>
+
+      <div class="post-body">
+        <p>The thing nobody talks about with personal AI is memory.</p>
+
+        <p>Every session, the model wakes up fresh. No idea who you are, what you care about, what happened yesterday. You either re-explain everything every time, or you build a memory system.</p>
+
+        <p>I built one. It's just files.</p>
+
+        <ul>
+          <li><code>MEMORY.md</code> — long-term. Distilled facts about me, my preferences, how I work. The AI reads this at the start of every session.</li>
+          <li><code>memory/YYYY-MM-DD.md</code> — daily logs. Raw notes from each session. What happened, what was decided, what to follow up on.</li>
+          <li><code>SOUL.md</code> — who the AI is. Personality, working style, how it should behave. This one it can edit itself when it learns something.</li>
+          <li><code>FOLLOWUPS.md</code> — things I need to do. The AI runs a heartbeat check periodically, reads this file, nudges me if something needs attention.</li>
+        </ul>
+
+        <p>The whole system is maybe 10 files. But because it's just markdown on a server, it's persistent across sessions, editable by both me and the AI, and under my control completely.</p>
+
+        <p>No vendor lock-in. No "memory" feature that disappears when you change models. Just files.</p>
+
+        <p>The simplest solutions are usually the right ones.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Abhi Hebbar · <a href="../#writing">More writing</a></p>
+  </footer>
+</body>
+</html>

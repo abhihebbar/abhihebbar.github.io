@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Theme · Abhi Hebbar</title>
+  <meta name="description" content="Visual theme reference for Abhi Hebbar's personal site.">
+  <link rel="icon" href="icon.png">
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --paper: #fffdf8;
+      --ink: #161616;
+      --muted: #6b665d;
+      --line: #ddd6c9;
+      --accent: #2d4a7c;
+      --accent-soft: #e8eef8;
+      --forest: #31453b;
+      --burgundy: #6b3d3d;
+      --stone: #b8a58c;
+      --max: 1040px;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.04);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, var(--bg), #f2efe8);
+      line-height: 1.6;
+    }
+    .wrap {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 72px;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      font-size: 14px;
+    }
+    .topbar a { color: var(--accent); text-decoration: none; }
+    .hero, .section {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-soft);
+    }
+    .section { margin-top: 20px; }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    h1, h2, h3, .serif {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin: 0;
+    }
+    h1 { font-size: clamp(44px, 7vw, 76px); max-width: 11ch; }
+    h2 { font-size: 28px; margin-bottom: 12px; }
+    h3 { font-size: 22px; margin-bottom: 10px; }
+    p { margin: 0; }
+    .lead {
+      font-size: 20px;
+      color: #2b2a28;
+      max-width: 44rem;
+      margin-top: 18px;
+    }
+    .muted { color: var(--muted); }
+    .chips { margin-top: 18px; }
+    .chip {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      margin: 8px 8px 0 0;
+    }
+    .grid { display: grid; gap: 16px; }
+    .grid-2 { grid-template-columns: 1.1fr .9fr; }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      background: var(--paper);
+    }
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .swatch {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: white;
+    }
+    .swatch-color { height: 72px; }
+    .swatch-meta { padding: 10px 12px; font-size: 13px; }
+    .type-sample { margin-top: 14px; }
+    .type-sample + .type-sample { margin-top: 20px; }
+    .hero-demo {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 20px;
+      margin-top: 18px;
+    }
+    .demo-frame {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper);
+      padding: 22px;
+    }
+    .nav-demo {
+      display: flex;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .btn.primary {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+    .btn.secondary {
+      color: var(--ink);
+      background: transparent;
+    }
+    .portrait-demo {
+      height: 100%;
+      min-height: 280px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(45,74,124,0.08), rgba(45,74,124,0.02)),
+        linear-gradient(135deg, #f0ede6, #ddd6c9);
+      display: flex;
+      align-items: end;
+      justify-content: start;
+      padding: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .rule { height: 1px; background: var(--line); margin: 16px 0 0; }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: #f1ede5;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+    ul { margin: 10px 0 0; padding-left: 18px; }
+    @media (max-width: 920px) {
+      .grid-2, .hero-demo, .grid-3, .swatch-grid { grid-template-columns: 1fr; }
+      .hero, .section { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <strong>Abhi Hebbar · Visual Theme</strong>
+      <a href="./">← Back to home</a>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">UI / UX reference for /mysite</div>
+      <h1>Typography first. Quiet color. Calm structure.</h1>
+      <p class="lead">
+        This page is a pure visual reference for the site theme: palette, typography, spacing,
+        component behavior, portrait treatment, and overall UX direction.
+      </p>
+      <div class="chips">
+        <span class="chip">Editorial</span>
+        <span class="chip">Light background</span>
+        <span class="chip">Restrained accent</span>
+        <span class="chip">Minimal nav</span>
+        <span class="chip">Low-noise UI</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Color palette</h2>
+      <p class="muted">Light, paper-like surfaces with one restrained accent and a few optional secondary tones.</p>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="swatch-color" style="background:#f7f5f0"></div><div class="swatch-meta"><strong>Background</strong><br><code>#f7f5f0</code></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#fffdf8"></div><div class="swatch-meta"><strong>Paper</strong><br><code>#fffdf8</code></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#161616"></div><div class="swatch-meta"><strong>Ink</strong><br><code>#161616</code></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#6b665d"></div><div class="swatch-meta"><strong>Muted</strong><br><code>#6b665d</code></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#ddd6c9"></div><div class="swatch-meta"><strong>Divider</strong><br><code>#ddd6c9</code></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#2d4a7c"></div><div class="swatch-meta"><strong>Accent</strong><br><code>#2d4a7c</code></div></div>
+      </div>
+      <div class="swatch-grid" style="margin-top:12px">
+        <div class="swatch"><div class="swatch-color" style="background:#e8eef8"></div><div class="swatch-meta"><strong>Accent soft</strong><br><code>#e8eef8</code></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#31453b"></div><div class="swatch-meta"><strong>Forest</strong><br><code>#31453b</code></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#6b3d3d"></div><div class="swatch-meta"><strong>Burgundy</strong><br><code>#6b3d3d</code></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#b8a58c"></div><div class="swatch-meta"><strong>Stone</strong><br><code>#b8a58c</code></div></div>
+      </div>
+    </section>
+
+    <section class="section grid grid-2">
+      <div class="card">
+        <h2>Typography</h2>
+        <p class="muted">Editorial serif for display. Highly readable sans for body and UI.</p>
+        <div class="type-sample">
+          <div class="eyebrow">Hero / display</div>
+          <div class="serif" style="font-size:56px; max-width:10ch;">Thoughtful, clear, and deliberately understated.</div>
+        </div>
+        <div class="type-sample">
+          <div class="eyebrow">Section heading</div>
+          <h3>How headings should feel</h3>
+          <p class="muted">Elegant, calm, high-contrast, never shouty.</p>
+        </div>
+        <div class="type-sample">
+          <div class="eyebrow">Body copy</div>
+          <p style="font-size:18px; max-width:40rem;">Body text should feel quiet and readable. The site should rely on typography and spacing rather than lots of decorative UI elements.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Type scale</h2>
+        <ul>
+          <li><strong>Hero title:</strong> 56–72px desktop / 38–48px mobile</li>
+          <li><strong>Section heading:</strong> 26–34px</li>
+          <li><strong>Body text:</strong> 17–20px</li>
+          <li><strong>Nav text:</strong> 14–15px</li>
+          <li><strong>Eyebrow / label:</strong> 11–13px uppercase</li>
+        </ul>
+        <div class="rule"></div>
+        <p class="muted" style="margin-top:16px;">Keep line lengths comfortable. Use fewer weights. Let size and spacing do the hierarchy work.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>UI direction</h2>
+      <div class="hero-demo">
+        <div class="demo-frame">
+          <div class="nav-demo">
+            <span>Work</span>
+            <span>Notes</span>
+            <span>Contact</span>
+          </div>
+          <div class="eyebrow">Engineer · Technical founder · Prototyper</div>
+          <div class="serif" style="font-size:50px; max-width:11ch;">Strong headline, short intro, calm call to action.</div>
+          <p style="font-size:18px; max-width:38rem; margin-top:16px;">The page should feel structured by spacing and type rhythm, not by lots of boxes competing for attention.</p>
+          <div class="btn-row">
+            <a class="btn primary" href="javascript:void(0)">Primary action</a>
+            <a class="btn secondary" href="javascript:void(0)">Secondary link</a>
+          </div>
+        </div>
+        <div class="portrait-demo">Portrait should be secondary — author photo, not centerpiece.</div>
+      </div>
+    </section>
+
+    <section class="section grid grid-3">
+      <div class="card">
+        <h3>Navigation</h3>
+        <p class="muted">Small, quiet, minimal. No heavy nav background. No loud CTA button in the nav.</p>
+      </div>
+      <div class="card">
+        <h3>Buttons & links</h3>
+        <p class="muted">Prefer links over buttons overall. One strong primary button style at most. No glossy gradients.</p>
+      </div>
+      <div class="card">
+        <h3>Cards & surfaces</h3>
+        <p class="muted">Use sparingly. If present, they should feel like paper panels, not SaaS widgets or metric tiles.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>UX rules</h2>
+      <ul>
+        <li>Immediate clarity over cleverness</li>
+        <li>Whitespace over unnecessary containers</li>
+        <li>One strong visual idea over many small tricks</li>
+        <li>Subtle motion only, if any</li>
+        <li>Responsive layouts should collapse gracefully, not turn into card soup</li>
+      </ul>
+      <p class="muted" style="margin-top:14px;">Full written spec: <a href="theme.md">theme.md</a></p>
+    </section>
+  </div>
+</body>
+</html>

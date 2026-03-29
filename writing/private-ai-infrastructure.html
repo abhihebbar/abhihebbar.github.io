@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why your personal AI should be private by default · Abhi Hebbar</title>
+  <meta name="description" content="Nginx + mTLS + Lightsail. 20 minutes of setup. The right way to run a personal AI.">
+  <meta name="theme-color" content="#f7f5f0">
+  <link rel="icon" href="../icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/home.css?v=20260329">
+  <style>
+    .post-wrap { max-width: 680px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+    .post-wrap h1 { font-family: Newsreader, serif; font-size: 2.2rem; line-height: 1.2; margin-bottom: 0.5rem; }
+    .post-meta { color: #888; font-size: 0.85rem; margin-bottom: 2.5rem; }
+    .post-body p { font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.4rem; color: #2a2a2a; }
+    .post-body h2 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+    .back-link { display: inline-block; margin-bottom: 2.5rem; color: #888; font-size: 0.9rem; text-decoration: none; }
+    .back-link:hover { color: #333; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="../">Abhi Hebbar</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../#work">Work</a>
+        <a href="../#writing">Writing</a>
+        <a href="../#elsewhere">Elsewhere</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="post-wrap">
+      <a class="back-link" href="../#writing">← Writing</a>
+      <h1>Why your personal AI should be private by default</h1>
+      <p class="post-meta">March 2026 · Infrastructure</p>
+
+      <div class="post-body">
+        <p>I've been building a setup where my AI assistant has its own private corner of the internet.</p>
+
+        <p>Here's how it works: a $5 Lightsail instance runs Nginx with mTLS — mutual TLS, meaning only devices with the right certificate can even see the page. My phone has a certificate. Random internet crawlers don't. The AI lives behind that.</p>
+
+        <p>Then there's a <code>/public/</code> folder — intentionally open, no auth. That's where things like email signatures and shared assets live. Everything else? Locked down.</p>
+
+        <p>The interesting part isn't the tech stack — it's the design decision. You're building an AI system that handles personal context, manages files, sends emails on your behalf. That should be private by default, with deliberate exceptions. Not public by default with locks slapped on.</p>
+
+        <p>Most "personal AI" setups I see are the opposite. They're hosted somewhere public, maybe behind a password. That's not good enough.</p>
+
+        <p>mTLS is the right primitive here. Worth the 20 minutes of setup.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Abhi Hebbar · <a href="../#writing">More writing</a></p>
+  </footer>
+</body>
+</html>
