@@ -53,50 +53,78 @@
 
         <p>The model reads a set of files at the start of each session. What it knows about you comes from those files — not from some persistent memory layer, not from conversation history. Just files. When those files are clean and current, the sessions are good. When they're messy, outdated, or contradictory, the sessions reflect that.</p>
 
-        <h2>The file structure I landed on</h2>
+        <h2>The default setup — and what I changed</h2>
 
-        <p>There are five files that matter:</p>
+        <p>OpenClaw already gives you the core files out of the box: <code>MEMORY.md</code>, <code>SOUL.md</code>, <code>USER.md</code>, daily logs, a followups file. The structure is there. What I found is that having the files isn't the same as having a system.</p>
 
-        <p><code>MEMORY.md</code> — the long-term facts. Who I am, how I work, what my projects are, shortcut conventions. Kept deliberately short. The moment it bloats with task-specific detail, it stops working well.</p>
+        <p>Here's what I built on top.</p>
 
-        <p><code>SOUL.md</code> — who the AI is. Personality, working style, how it should behave. The AI can edit this itself when it learns something about how I like to work.</p>
+        <h2>1. Shortcuts to maintain the files</h2>
 
-        <p><code>USER.md</code> — a short note about me for context. Name, timezone, how I want responses. One page max.</p>
+        <p>The biggest friction with any memory system is updating it. If it takes more than a few seconds, you don't do it, and the system degrades.</p>
 
-        <p><code>memory/YYYY-MM-DD.md</code> — daily logs. Raw notes from each session. What happened, what was decided, what to follow up on. The AI writes these, not me.</p>
+        <p>I taught the AI a shorthand:</p>
 
-        <p><code>FOLLOWUPS.md</code> — things I need to do. The AI checks this and nudges me if something needs attention.</p>
+        <pre><code>++ this is something to remember long-term  → saves to MEMORY.md
+>> update how you behave in this way         → updates SOUL.md
+-- update what you know about me             → updates USER.md</code></pre>
 
-        <p>The whole thing is maybe 10 files. Plain markdown on the same server.</p>
+        <p>One line. The AI knows where it goes. No friction means I actually use it.</p>
 
-        <h2>What breaks it</h2>
+        <h2>2. Projects instead of a single task pile</h2>
 
-        <p><strong>Duplication.</strong> The same thing written slightly differently in two places — the AI picks one and ignores the other, and you never know which.</p>
+        <p>The default setup tends to put everything in one place. The problem is that <code>MEMORY.md</code> ends up with personal preferences sitting next to project-specific instructions, and sessions get noisy.</p>
 
-        <p><strong>Staleness.</strong> Instructions that made sense three weeks ago but no longer apply. The AI has no way to know they're outdated.</p>
+        <p>I moved everything project-specific into separate folders — one per project, each with its own <code>README.md</code>. <code>MEMORY.md</code> stays short and applies to every session. Project detail lives where it belongs and gets loaded when it's relevant.</p>
 
-        <p><strong>Mixing concerns.</strong> Task-specific detail (how a particular project works, what tools it uses) sitting in the general memory file alongside personal preferences. I pull task detail into separate project folders now. <code>MEMORY.md</code> is only for things that apply to every session.</p>
+        <p>To create a project:</p>
+        <pre><code>** new project: [name and what it is]</code></pre>
 
-        <h2>The prompts I use to maintain it</h2>
+        <p>The AI sets up the folder, creates the README, and updates the index.</p>
 
-        <p>To save something to memory:</p>
-        <pre><code>++ remember that [thing]</code></pre>
+        <h2>3. A cleanup job</h2>
 
-        <p>To update the personality file:</p>
-        <pre><code>>> [update to how I want you to behave]</code></pre>
+        <p>Files accumulate. Instructions go stale. Projects end but their files don't move. Left alone, the system slowly gets worse.</p>
 
-        <p>When a session goes wrong, instead of just moving on:</p>
-        <pre><code>Something went wrong in that last session. What context were you missing? What should be in the files so this doesn't happen again?</code></pre>
+        <p>I have a scheduled cleanup job that runs daily. It trims daily memory logs that have been distilled into long-term memory, removes temporary files, and checks for obvious duplication. The AI runs it, not me.</p>
 
-        <p>That last one is the most useful. The AI will usually tell you exactly what was missing — and then you can write it down properly.</p>
+        <p>The job also does a quick audit: are there things in <code>MEMORY.md</code> that belong in a project folder? Are there project files that reference things that no longer exist? Short report, fixes what it can, flags the rest.</p>
+
+        <h2>4. Clear rules on where everything lives</h2>
+
+        <p>The thing that made the biggest difference was deciding upfront where each type of information belongs — and sticking to it.</p>
+
+        <p><code>MEMORY.md</code> — facts that apply to every session. Who I am, how I work, shortcut conventions. One page max.</p>
+        <p><code>SOUL.md</code> — the AI's personality and behaviour. It can edit this itself.</p>
+        <p><code>USER.md</code> — basic facts about me. Name, timezone, preferences.</p>
+        <p><code>projects/[name]/README.md</code> — everything specific to a project. How it works, what tools it uses, current status.</p>
+        <p><code>memory/YYYY-MM-DD.md</code> — raw session logs. AI writes these. I don't touch them.</p>
+        <p><code>FOLLOWUPS.md</code> — things I need to do. AI checks this on a heartbeat and nudges me.</p>
+
+        <p>When something new comes up, there's a clear answer for where it goes. That removes a lot of small decisions that add up to friction.</p>
+
+        <h2>Setting this up yourself</h2>
+
+        <p>If you want to replicate this on your own OpenClaw setup, here's a prompt to get started. The AI will ask you follow-up questions and build the structure with you:</p>
+
+        <pre><code>I want to set up a proper information system for our sessions — like the one described at abhi.hebbar.me/writing/ai-memory-with-files.html. 
+
+Ask me the following one at a time, wait for my answer, then move to the next:
+1. What's your name, timezone, and how do you want me to address you?
+2. What are the 2-3 main areas of work or life you want me to help with?
+3. For each: what's the project, what's the current status, and what should I always remember about it?
+4. How do you want me to behave — tone, how much to ask before acting, anything specific?
+5. Are there any rules that should apply to every session (always CC someone on emails, prefer a certain language, etc.)?
+
+After each answer, update the relevant file. At the end, summarise what you've created and set up the shortcut conventions (++ / >> / --).</code></pre>
 
         <h2>What changed</h2>
 
         <p>The current setup is three days old. Before this, I'd installed and uninstalled twice — sessions were too chaotic to be useful.</p>
 
-        <p>The AI didn't change. The files did.</p>
+        <p>The AI didn't change. The system around it did.</p>
 
-        <p>I'm still figuring out the right things to keep versus discard. But the basic shape works: short files, each doing one job, maintained as you go. Treat it like a handoff document you're leaving for yourself.</p>
+        <p>I'm still adjusting things as I go. But the basic shape works: clear rules, short files, each doing one job, maintained without friction. Treat it like a handoff document you're leaving for yourself — because that's exactly what it is.</p>
       </div>
     </div>
   </main>
