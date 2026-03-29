@@ -107,7 +107,7 @@ a:hover {
   inset: 0;
   background-image: url('../images/hero-sunset.jpg');
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
