@@ -105,7 +105,7 @@ a:hover {
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('../images/profile-alt.jpg');
+  background-image: url('../images/hero-sunset.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -370,4 +370,25 @@ a:hover {
   .nav__brand {
     display: none;
   }
+}
+
+/* About section with portrait */
+.section__body--with-photo {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+.about-photo {
+  width: 180px;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+.about-text { flex: 1; }
+@media (max-width: 600px) {
+  .section__body--with-photo { flex-direction: column; }
+  .about-photo { width: 100%; height: 260px; }
 }
