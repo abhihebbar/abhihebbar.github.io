@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chords & Notes — Abhi Hebbar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #111;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px 60px;
+        gap: 20px;
+      }
+
+      /* ════════════════════════════
+   PRINT CSS
+════════════════════════════ */
+      @media print {
+        @page {
+          size: 148mm 210mm; /* A5 */
+          margin: 0;
+        }
+
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+
+        body {
+          background: none !important;
+          padding: 0 !important;
+          gap: 0 !important;
+          display: block !important;
+        }
+
+        .page-divider {
+          display: none !important;
+        }
+        #loading {
+          display: none !important;
+        }
+
+        .page {
+          width: 148mm !important;
+          min-height: 210mm !important;
+          height: 210mm !important;
+          overflow: hidden !important;
+          page-break-after: always !important;
+          break-after: page !important;
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+          box-shadow: none !important;
+          border: none !important;
+          display: flex !important;
+        }
+
+        /* Last page: no forced break after */
+        .page:last-child {
+          page-break-after: auto !important;
+          break-after: auto !important;
+        }
+
+        /* Cover */
+        .cover {
+          min-height: 210mm !important;
+          height: 210mm !important;
+        }
+
+        /* Ensure all backgrounds and borders print */
+        .song-header,
+        .toc-header,
+        .song-footer,
+        .toc-footer,
+        .cover-stripe,
+        .song-stripe,
+        .toc-stripe,
+        .cover-photo::after,
+        .cover-photo::before {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        /* Remove screen shadows */
+        .cover,
+        .song-page,
+        .toc-page {
+          box-shadow: none !important;
+        }
+
+        /* Song body — constrain to fit page */
+        .song-body {
+          overflow: hidden !important;
+        }
+
+        /* Don't let strum/pluck boxes break across pages */
+        .strum-box,
+        .pluck-box,
+        .note-box,
+        .section {
+          break-inside: avoid !important;
+          page-break-inside: avoid !important;
+        }
+      }
+
+      /* ─── Loading state ─── */
+      #loading {
+        color: rgba(76, 47, 212, 0.7);
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        padding: 60px 0;
+      }
+
+      /* ─── A5 page ─── */
+      .page {
+        width: 559px;
+        position: relative;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .page-divider {
+        font-family: "Space Mono", monospace;
+        font-size: 8px;
+        color: #333;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        padding: 2px 0;
+      }
+
+      /* ════════════════════════════
+   COVER
+════════════════════════════ */
+      .cover {
+        background: #f0ece2;
+        min-height: 794px;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #0d0d0d;
+        box-shadow:
+          6px 6px 0 #0d0d0d,
+          0 24px 80px rgba(0, 0, 0, 0.5);
+      }
+      .cover-photo {
+        height: 340px;
+        position: relative;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .cover-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 40%;
+        filter: grayscale(100%) contrast(1.3) brightness(0.45);
+        display: block;
+      }
+      .cover-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(13, 13, 13, 0.1) 0%,
+          rgba(13, 13, 13, 0.6) 100%
+        );
+      }
+      .cover-photo-stamp {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0 44px 22px;
+        z-index: 5;
+      }
+      .cover-stamp-overline {
+        font-family: "Space Mono", monospace;
+        font-size: 8px;
+        color: rgba(240, 236, 226, 0.5);
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+      .cover-stamp-title {
+        font-family: "Bebas Neue", cursive;
+        font-size: 80px;
+        color: #f0ece2;
+        line-height: 0.85;
+        letter-spacing: 0.02em;
+      }
+      .cover-stamp-title .accent {
+        color: #4c2fd4;
+      }
+      .cover-stripe {
+        height: 6px;
+        background: repeating-linear-gradient(
+          90deg,
+          #4c2fd4 0,
+          #4c2fd4 38px,
+          #0d0d0d 38px,
+          #0d0d0d 39px
+        );
+        flex-shrink: 0;
+      }
+      .cover-body {
+        flex: 1;
+        padding: 24px 44px 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .cover-desc {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-size: 14px;
+        color: #6a6058;
+        line-height: 1.7;
+        font-weight: 300;
+        margin-bottom: 22px;
+      }
+      .cover-icons {
+        display: flex;
+        gap: 26px;
+        padding: 16px 0;
+        border-top: 2px solid #0d0d0d;
+        border-bottom: 1px solid #ccc8be;
+        margin-bottom: 24px;
+      }
+      .cover-icon-item {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+      .cover-icon-label {
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        color: #4a4038;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .cover-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .cover-author-label {
+        font-family: "Space Mono", monospace;
+        font-size: 6.5px;
+        color: #9a9088;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+      .cover-author-name {
+        font-family: "Bebas Neue", cursive;
+        font-size: 26px;
+        color: #0d0d0d;
+        letter-spacing: 0.04em;
+      }
+      .cover-edition {
+        text-align: right;
+        font-family: "Space Mono", monospace;
+        font-size: 7.5px;
+        color: #9a9088;
+        line-height: 2.1;
+        letter-spacing: 0.08em;
+      }
+
+      /* ════════════════════════════
+   TABLE OF CONTENTS
+════════════════════════════ */
+      .toc-page {
+        background: #faf8f4;
+        min-height: 794px;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #0d0d0d;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      }
+      .toc-header {
+        background: #0d0d0d;
+        padding: 14px 44px 12px;
+        flex-shrink: 0;
+      }
+      .toc-header-label {
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        color: #4c2fd4;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .toc-header-title {
+        font-family: "Bebas Neue", cursive;
+        font-size: 34px;
+        color: #f0ece2;
+        line-height: 1;
+        letter-spacing: 0.03em;
+      }
+      .toc-stripe {
+        height: 4px;
+        background: repeating-linear-gradient(
+          90deg,
+          #4c2fd4 0,
+          #4c2fd4 24px,
+          transparent 24px,
+          transparent 25px
+        );
+        flex-shrink: 0;
+      }
+      .toc-body {
+        flex: 1;
+        padding: 14px 44px 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 20px;
+        align-content: start;
+        overflow: hidden;
+      }
+      .toc-entry {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        padding: 4px 0;
+        border-bottom: 1px solid #eae6e0;
+      }
+      .toc-num {
+        font-family: "Bebas Neue", cursive;
+        font-size: 15px;
+        color: rgba(76, 47, 212, 0.28);
+        line-height: 1;
+        min-width: 24px;
+        flex-shrink: 0;
+      }
+      .toc-info {
+        flex: 1;
+        min-width: 0;
+        padding-left: 4px;
+      }
+      .toc-title {
+        font-family: "Bebas Neue", cursive;
+        font-size: 13px;
+        color: #0d0d0d;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.2;
+      }
+      .toc-film {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 8.5px;
+        color: #9a9088;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.3;
+      }
+      .toc-key {
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        color: #4c2fd4;
+        font-weight: 700;
+        flex-shrink: 0;
+        text-align: right;
+        padding-left: 5px;
+        letter-spacing: 0.03em;
+      }
+      .toc-footer {
+        padding: 8px 44px;
+        background: #0d0d0d;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .toc-footer-title {
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        color: rgba(76, 47, 212, 0.65);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .toc-footer-page {
+        font-family: "Bebas Neue", cursive;
+        font-size: 18px;
+        color: rgba(240, 236, 226, 0.28);
+        letter-spacing: 0.1em;
+      }
+
+      /* ════════════════════════════
+   SONG PAGE
+════════════════════════════ */
+      .song-page {
+        background: #faf8f4;
+        min-height: 794px;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #0d0d0d;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      }
+      .song-header {
+        background: #0d0d0d;
+        padding: 16px 44px 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-shrink: 0;
+      }
+      .song-book-title {
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        color: #4c2fd4;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin-bottom: 7px;
+      }
+      .song-title {
+        font-family: "Bebas Neue", cursive;
+        font-size: 36px;
+        color: #f0ece2;
+        line-height: 1;
+        letter-spacing: 0.03em;
+      }
+      .song-film {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 11.5px;
+        color: rgba(240, 236, 226, 0.42);
+        margin-top: 3px;
+      }
+      .song-num {
+        font-family: "Bebas Neue", cursive;
+        font-size: 54px;
+        color: rgba(76, 47, 212, 0.22);
+        line-height: 1;
+        margin-top: -4px;
+        letter-spacing: 0.02em;
+        flex-shrink: 0;
+      }
+      .song-stripe {
+        height: 4px;
+        background: repeating-linear-gradient(
+          90deg,
+          #4c2fd4 0,
+          #4c2fd4 24px,
+          transparent 24px,
+          transparent 25px
+        );
+        flex-shrink: 0;
+      }
+      .song-meta {
+        display: flex;
+        border-bottom: 2px solid #0d0d0d;
+        background: #faf8f4;
+        flex-shrink: 0;
+      }
+      .song-meta-item {
+        flex: 1;
+        padding: 9px 12px 9px 44px;
+        border-right: 1px solid #ddd8ce;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+      .song-meta-item:last-child {
+        border-right: none;
+      }
+      .song-meta-item svg {
+        opacity: 0.42;
+        flex-shrink: 0;
+      }
+      .meta-label {
+        font-family: "Space Mono", monospace;
+        font-size: 6px;
+        color: #9a9088;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 2px;
+      }
+      .meta-value {
+        font-family: "Space Mono", monospace;
+        font-size: 10px;
+        color: #0d0d0d;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+      .song-body {
+        flex: 1;
+        padding: 14px 44px 12px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 18px;
+        align-content: start;
+      }
+      .full-w {
+        grid-column: 1 / -1;
+      }
+
+      /* Section */
+      .section {
+        margin-bottom: 12px;
+      }
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+      .section-head svg {
+        opacity: 0.38;
+        flex-shrink: 0;
+      }
+      .section-lbl {
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        color: #4c2fd4;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      .section-rule {
+        flex: 1;
+        height: 1.5px;
+        background: #0d0d0d;
+      }
+      .section-rpt {
+        font-family: "Space Mono", monospace;
+        font-size: 6.5px;
+        color: #9a9088;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+      }
+
+      /* Chord lines */
+      .cl {
+        font-family: "Space Mono", monospace;
+        font-size: 11.5px;
+        color: #2a2520;
+        line-height: 1.85;
+        letter-spacing: 0.04em;
+      }
+
+      /* Strum box */
+      .strum-box {
+        background: #edeae2;
+        border: 1.5px solid #0d0d0d;
+        padding: 9px 13px;
+        margin-top: 3px;
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+      }
+      .strum-box svg {
+        opacity: 0.5;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .strum-pattern {
+        font-family: "Space Mono", monospace;
+        font-size: 14px;
+        color: #0d0d0d;
+        letter-spacing: 0.16em;
+        font-weight: 700;
+      }
+      .strum-legend {
+        font-family: "Space Mono", monospace;
+        font-size: 6.5px;
+        color: #7a7068;
+        margin-top: 4px;
+        letter-spacing: 0.06em;
+      }
+
+      /* Pluck box */
+      .pluck-box {
+        background: #edeae2;
+        border: 1.5px solid #0d0d0d;
+        border-left: 4px solid #4c2fd4;
+        padding: 9px 13px;
+        margin-top: 3px;
+      }
+      .pluck-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 2px;
+      }
+      .pluck-str {
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        color: #7a7068;
+        width: 18px;
+        text-align: right;
+      }
+      .pluck-dots {
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        color: #0d0d0d;
+        letter-spacing: 0.22em;
+        font-weight: 700;
+      }
+      .pluck-legend {
+        font-family: "Space Mono", monospace;
+        font-size: 6.5px;
+        color: #7a7068;
+        margin-top: 5px;
+        letter-spacing: 0.06em;
+      }
+
+      /* Note box */
+      .note-box {
+        background: #eeeae0;
+        border-left: 3px solid #4c2fd4;
+        padding: 8px 12px;
+        margin-top: 8px;
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+      }
+      .note-box svg {
+        opacity: 0.5;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .note-text {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-size: 11.5px;
+        color: #5a5048;
+        line-height: 1.55;
+      }
+
+      /* Song footer */
+      .song-footer {
+        padding: 8px 44px;
+        background: #0d0d0d;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .footer-title {
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        color: rgba(76, 47, 212, 0.65);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .footer-page {
+        font-family: "Bebas Neue", cursive;
+        font-size: 18px;
+        color: rgba(240, 236, 226, 0.28);
+        letter-spacing: 0.1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading">Loading songs.json…</div>
+
+    <script>
+      // ─── SVG icon helpers ───────────────────────────────────
+      const SVG = {
+        key: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18V5l12-2v13" stroke="#0d0d0d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" stroke="#0d0d0d" stroke-width="2"/><circle cx="18" cy="16" r="3" stroke="#0d0d0d" stroke-width="2"/></svg>`,
+        capo: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="9" width="18" height="5" rx="2.5" stroke="#0d0d0d" stroke-width="2"/><line x1="8" y1="3" x2="8" y2="21" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="3" x2="12" y2="21" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="3" x2="16" y2="21" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+        note: `<svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M9 18V5l12-2v13" stroke="#4c2fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" stroke="#4c2fd4" stroke-width="2"/><circle cx="18" cy="16" r="3" stroke="#4c2fd4" stroke-width="2"/></svg>`,
+        strum: `<svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M2 12h2l2-7 4 14 3-10 2 6 2-3h5" stroke="#4c2fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        strumBig: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M2 12h2l2-7 4 14 3-10 2 6 2-3h5" stroke="#0d0d0d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        hand: `<svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M18 11V9a2 2 0 0 0-4 0v2M14 9V7a2 2 0 0 0-4 0v4M10 8.5V7a2 2 0 0 0-4 0v7l-1.3-1.3a1.5 1.5 0 0 0-2.1 2.1L6 19a6 6 0 0 0 12 0v-5a2 2 0 0 0-4 0" stroke="#4c2fd4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        info: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#4c2fd4" stroke-width="1.5"/><line x1="12" y1="8" x2="12" y2="12" stroke="#4c2fd4" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="16" x2="12.01" y2="16" stroke="#4c2fd4" stroke-width="2" stroke-linecap="round"/></svg>`,
+      };
+
+      // ─── Cover icons ─────────────────────────────────────────
+      const coverIcons = [
+        {
+          svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" opacity="0.55"><path d="M19.59 3.41a2 2 0 0 0-2.83 0l-1.83 1.83A5 5 0 0 0 9 10.17L3.59 15.59a2 2 0 0 0 0 2.83l2 2a2 2 0 0 0 2.83 0L14 14.83a5 5 0 0 0 5.17-5.93l1.83-1.83a2 2 0 0 0 0-2.83l-1.41-1.41z" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="14.5" r="1.2" fill="#0d0d0d"/></svg>`,
+          label: "Acoustic Guitar",
+        },
+        {
+          svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" opacity="0.55"><path d="M9 18V5l12-2v13" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" stroke="#0d0d0d" stroke-width="1.5"/><circle cx="18" cy="16" r="3" stroke="#0d0d0d" stroke-width="1.5"/></svg>`,
+          label: "Chords",
+        },
+        {
+          svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" opacity="0.55"><path d="M2 12h2l2-7 4 14 3-10 2 6 2-3h5" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+          label: "Strum Patterns",
+        },
+        {
+          svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" opacity="0.55"><path d="M18 11V9a2 2 0 0 0-4 0v2M14 9V7a2 2 0 0 0-4 0v4M10 8.5V7a2 2 0 0 0-4 0v7l-1.3-1.3a1.5 1.5 0 0 0-2.1 2.1L6 19a6 6 0 0 0 12 0v-5a2 2 0 0 0-4 0" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+          label: "Fingerpicking",
+        },
+      ];
+
+      // ─── Render helpers ──────────────────────────────────────
+      function h(tag, cls, inner) {
+        return `<${tag}${cls ? ` class="${cls}"` : ""}>${inner}</${tag}>`;
+      }
+
+      function renderSection(sec) {
+        const repeat = sec.repeat
+          ? `<span class="section-rpt">${sec.repeat}</span>`
+          : "";
+        const lines = sec.lines
+          .map((l) => `<div class="cl">${l}</div>`)
+          .join("");
+        return `
+    <div class="section">
+      <div class="section-head">${SVG.note}<span class="section-lbl">${sec.name}</span><div class="section-rule"></div>${repeat}</div>
+      ${lines}
+    </div>`;
+      }
+
+      function renderStrum(song) {
+        return `
+    <div class="section full-w" style="margin-top:2px">
+      <div class="section-head">${SVG.strum}<span class="section-lbl">Strumming</span><div class="section-rule"></div></div>
+      <div class="strum-box">${SVG.strumBig}<div>
+        <div class="strum-pattern">${song.strumming}</div>
+        <div class="strum-legend">${song.strumming_note}</div>
+      </div></div>
+    </div>`;
+      }
+
+      function renderPlucking(p) {
+        const rows = p.strings
+          .map(
+            (s) =>
+              `<div class="pluck-row"><span class="pluck-str">${s.string}</span><span class="pluck-dots">${s.pattern}</span></div>`,
+          )
+          .join("");
+        return `
+    <div class="section full-w" style="margin-top:8px">
+      <div class="section-head">${SVG.hand}<span class="section-lbl">${p.label}</span><div class="section-rule"></div></div>
+      <div class="pluck-box">${rows}<div class="pluck-legend">${p.legend}</div></div>
+    </div>`;
+      }
+
+      function renderNote(text) {
+        return `<div class="note-box full-w">${SVG.info}<span class="note-text">${text}</span></div>`;
+      }
+
+      function renderMeta(song) {
+        return `
+    <div class="song-meta">
+      <div class="song-meta-item">${SVG.key}<div><span class="meta-label">Key</span><span class="meta-value">${song.key}</span></div></div>
+      <div class="song-meta-item">${SVG.capo}<div><span class="meta-label">Capo</span><span class="meta-value">${song.capo}</span></div></div>
+    </div>`;
+      }
+
+      function renderSongPage(song, pageNum) {
+        const sections = song.sections.map(renderSection).join("");
+        const strum = renderStrum(song);
+        const pluck = song.plucking ? renderPlucking(song.plucking) : "";
+        const note = song.note ? renderNote(song.note) : "";
+        const numStr = String(song.id).padStart(2, "0");
+        return `
+    <div class="page song-page">
+      <div class="song-header">
+        <div>
+          <div class="song-book-title">Chords &amp; Notes — Abhi Hebbar</div>
+          <div class="song-title">${song.title}</div>
+          <div class="song-film">${song.film}</div>
+        </div>
+        <div class="song-num">${numStr}</div>
+      </div>
+      <div class="song-stripe"></div>
+      ${renderMeta(song)}
+      <div class="song-body">
+        ${sections}
+        ${strum}
+        ${pluck}
+        ${note}
+      </div>
+      <div class="song-footer">
+        <span class="footer-title">Chords &amp; Notes</span>
+        <span class="footer-page">${String(pageNum).padStart(2, "0")}</span>
+      </div>
+    </div>`;
+      }
+
+      function renderTOCEntry(s) {
+        const capoTag = s.capo !== "No Capo" ? ` · ${s.capo}` : "";
+        return `
+    <div class="toc-entry">
+      <div class="toc-num">${String(s.id).padStart(2, "0")}</div>
+      <div class="toc-info">
+        <div class="toc-title">${s.title}</div>
+        <div class="toc-film">${s.film}</div>
+      </div>
+      <div class="toc-key">${s.key.split("(")[0].trim().split(" ")[0]}${capoTag}</div>
+    </div>`;
+      }
+
+      function renderTOCPage(entries, pageLabel, isFirst) {
+        const title = isFirst ? "Contents" : "Contents (cont.)";
+        return `
+    <div class="page toc-page">
+      <div class="toc-header">
+        <div class="toc-header-label">Chords &amp; Notes — Abhi Hebbar</div>
+        <div class="toc-header-title">${title}</div>
+      </div>
+      <div class="toc-stripe"></div>
+      <div class="toc-body">${entries}</div>
+      <div class="toc-footer">
+        <span class="toc-footer-title">Chords &amp; Notes</span>
+        <span class="toc-footer-page">—</span>
+      </div>
+    </div>`;
+      }
+
+      function renderTOC(songs) {
+        // 2 columns, each entry ~30px tall (title ~16px + film ~14px)
+        // Page body after header (~82px) + footer (~36px) ≈ 676px usable
+        // 14px padding top/bottom = 652px. Each entry ≈ 30px → ~21 per column → 42 per page
+        // With 41 songs, all fits on one page — but split at 38 to leave breathing room
+        const SONGS_PER_PAGE = 34;
+
+        const allEntries = songs.map(renderTOCEntry);
+        const pages = [];
+        for (let i = 0; i < allEntries.length; i += SONGS_PER_PAGE) {
+          pages.push(allEntries.slice(i, i + SONGS_PER_PAGE));
+        }
+
+        return pages
+          .map((chunk, idx) => renderTOCPage(chunk.join(""), idx, idx === 0))
+          .join(divider());
+      }
+
+      function renderCover(book) {
+        const icons = coverIcons
+          .map(
+            (i) =>
+              `<div class="cover-icon-item">${i.svg}<span class="cover-icon-label">${i.label}</span></div>`,
+          )
+          .join("");
+
+        return `
+    <div class="page cover">
+      <div class="cover-photo">
+        <img
+          src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=620&q=85&fit=crop&crop=focalpoint&fp-y=0.4"
+          alt="Guitar"
+          onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=620&q=85&fit=crop'"
+        >
+        <div class="cover-photo-stamp">
+          <div class="cover-stamp-overline">${book.subtitle}</div>
+          <div class="cover-stamp-title">${book.title.split(" ")[0]}<br>&amp; <span class="accent">${book.title.split(" ").slice(2).join(" ")}</span></div>
+        </div>
+      </div>
+      <div class="cover-stripe"></div>
+      <div class="cover-body">
+        <div>
+          <p class="cover-desc">A personal collection of Indian songs arranged for acoustic guitar — chord progressions, capo positions &amp; strumming patterns, written the way I play them.</p>
+          <div class="cover-icons">${icons}</div>
+        </div>
+        <div class="cover-footer">
+          <div>
+            <div class="cover-author-label">${book.credit}</div>
+            <div class="cover-author-name">${book.author}</div>
+          </div>
+          <div class="cover-edition">${book.edition}<br>${book.genres}</div>
+        </div>
+      </div>
+    </div>`;
+      }
+
+      function divider() {
+        return `<div class="page-divider">· · ·</div>`;
+      }
+
+      // ─── Main render ─────────────────────────────────────────
+      async function render() {
+        try {
+          const res = await fetch("songs.json");
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+
+          const { book, songs } = data;
+          document.title = `${book.title} — ${book.author}`;
+
+          let html = "";
+          html += renderCover(book);
+          html += divider();
+          html += renderTOC(songs);
+          html += divider();
+
+          songs.forEach((song, i) => {
+            html += renderSongPage(song, i + 1);
+            if (i < songs.length - 1) html += divider();
+          });
+
+          document.getElementById("loading").remove();
+          document.body.insertAdjacentHTML("beforeend", html);
+        } catch (err) {
+          document.getElementById("loading").textContent =
+            `⚠ Could not load songs.json — open this file via a local server (e.g. npx serve .) · ${err.message}`;
+        }
+      }
+
+      render();
+    </script>
+  </body>
+</html>

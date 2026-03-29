@@ -1,0 +1,1148 @@
+{
+  "book": {
+    "title": "Chords & Notes",
+    "subtitle": "Songs I keep coming back to",
+    "author": "Abhi Hebbar",
+    "credit": "Collected by",
+    "edition": "Vol. I · 2024",
+    "genres": "Bollywood · Indie · Folk · Kannada"
+  },
+  "songs": [
+    {
+      "id": 1,
+      "title": "Jumri Tallia",
+      "film": "Jagga Jasoos · Pritam",
+      "key": "C major",
+      "capo": "No Capo",
+      "strumming": "↓↓↓ ↑↓↑↓ ↑↓",
+      "strumming_note": "DDD U-UD-UDU — steady rhythmic drive throughout",
+      "sections": [
+        { "name": "Intro", "lines": ["C  G  C  G", "C  G  C"] },
+        { "name": "Verse", "lines": ["G  C  G  C", "G  C  G  F"] },
+        { "name": "Pre-Chorus", "lines": ["F  C  F  G", "G# —  C# —"] },
+        {
+          "name": "Chorus",
+          "repeat": "×2",
+          "lines": ["C  F  Am  F", "F  C  F  C-Em-A#-Am"]
+        },
+        {
+          "name": "Solo",
+          "lines": ["G#  G#  C#  C#", "Dm  Dm  G  G", "C  F  C  F  ×2"]
+        },
+        { "name": "Bridge", "repeat": "×2", "lines": ["C  F  C  F"] }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Tuje Kitna Chahne Lage",
+      "film": "Kabir Singh · Mithoon",
+      "key": "G major",
+      "capo": "Fret 4",
+      "strumming": "↓ ↓ ↑↑↓↓ ↓↑",
+      "strumming_note": "D D UUDD DU — alt: D D D DDU · capo 4 = B major actual key",
+      "note": "DSus4 = D + pinky on high e fret 3. D#Dim = xx1212. Bridge has optional D#Dim passing chord first time.",
+      "sections": [
+        { "name": "Intro", "repeat": "×3", "lines": ["G  Em  C  D"] },
+        {
+          "name": "Verse 1",
+          "repeat": "×2",
+          "lines": ["C  Bm  Am  DSus4-D", "Am  D  C-D  Em", "Am  D  C-D  G"]
+        },
+        { "name": "Interlude 1", "repeat": "×2", "lines": ["C  Em  Bm  Em"] },
+        { "name": "Interlude 2", "lines": ["G  Em  C  G"] },
+        { "name": "Bridge", "repeat": "×2", "lines": ["G  Em  C-Am  D"] },
+        { "name": "Outro", "repeat": "×2", "lines": ["C  Em  C  D", "C-D  G"] }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Rabtha",
+      "film": "Agent Sai Srinivasa Athreya · Sunny M.R.",
+      "key": "C major",
+      "capo": "No Capo",
+      "strumming": "↓ · ↓↑ · ↑↓↑",
+      "strumming_note": "D DU UDU — soft on verse · bridge drops to lighter fingerpick feel",
+      "sections": [
+        {
+          "name": "Intro",
+          "repeat": "×2",
+          "lines": ["C  F  Am  G", "Dm  F  G  G", "C  Am  C  Am", "Dm  F  G  G"]
+        },
+        { "name": "Verse", "lines": ["C  Am  C  Am", "F  F  G  G"] },
+        {
+          "name": "Both Combined",
+          "repeat": "×2",
+          "lines": ["C  Am  C  Am", "Dm  F  G  G"]
+        },
+        {
+          "name": "Chorus",
+          "repeat": "×2",
+          "lines": ["C  C  Am  Am", "F  F  G  G", "C  C  Am  Am"]
+        },
+        {
+          "name": "Interlude",
+          "repeat": "×2",
+          "lines": ["C  F  Am  G", "Dm  Em  F  G"]
+        },
+        {
+          "name": "Bridge",
+          "lines": [
+            "Am  Em  F  C",
+            "Am  Em  F  G",
+            "F  C  Dm  G",
+            "F  Em  Dm  G"
+          ]
+        },
+        { "name": "Outro", "lines": ["C  Am  C  Am", "Dm  F  G  C"] }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Ae Dil Hai Mushkil",
+      "film": "Ae Dil Hai Mushkil · Pritam",
+      "key": "D minor",
+      "capo": "Fret 1",
+      "strumming": "↓ ↓ ↓↑",
+      "strumming_note": "D D DU — clean and sparse · Gm = 3x0330",
+      "sections": [
+        {
+          "name": "Chorus / Intro",
+          "repeat": "×2",
+          "lines": ["Dm  Dm  Dm  A", "Gm  A#  A  Dm"]
+        },
+        { "name": "Post Chorus", "repeat": "×2", "lines": ["Dm  A#  C  Am"] },
+        {
+          "name": "Verse",
+          "repeat": "×2",
+          "lines": ["Dm  Dm  A#  A#", "C  C  Am  Am"]
+        },
+        { "name": "Bridge", "repeat": "×4", "lines": ["Dm  A#  C  A"] }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Rab Ka Shukrana",
+      "film": "Jannat 2 · Nidhi Hegde",
+      "key": "E minor",
+      "capo": "Fret 1",
+      "strumming": "↓↓ ↑↓ ↓↑↓ ↓↑↓↑↓↑",
+      "strumming_note": "DD UD DUD DUDUDU — alt: D UmD Um (muted strum)",
+      "sections": [
+        { "name": "Intro", "lines": ["Em  D  Em  D", "C  B7"] },
+        {
+          "name": "Verse",
+          "repeat": "×2",
+          "lines": ["Em  Em  Em  Am", "D  D  C  B7"]
+        },
+        { "name": "Chorus", "lines": ["Em  Am  D  C-B7  ×2"] },
+        { "name": "Interlude", "lines": ["Em  Am  D  C-B7"] },
+        { "name": "Outro", "lines": ["Em  D  Em  D"] }
+      ],
+      "note": "B7 = x21202"
+    },
+    {
+      "id": 6,
+      "title": "Soch Na Sake",
+      "film": "Airlift · Arijit Singh",
+      "key": "A major",
+      "capo": "No Capo",
+      "strumming": "↓↓↑ ↑↓ ↓↑ ↑↓ ↓↑",
+      "strumming_note": "DDU UD DU UD DU — alt: D DU UDUDU UD DU",
+      "sections": [
+        { "name": "Intro", "repeat": "×2", "lines": ["AM7  F#m  DM7  A-E"] },
+        { "name": "Verse 1", "repeat": "×2", "lines": ["A  F#m  D-E  A"] },
+        { "name": "Verse 2", "repeat": "×2", "lines": ["F#m-E  D  F#m-E  Bm"] },
+        { "name": "Chorus", "repeat": "×2", "lines": ["A  F#m  D-C#7  D-A"] },
+        {
+          "name": "Interlude 1",
+          "repeat": "×2",
+          "lines": ["AM7  F#m  DM7  A-E"]
+        },
+        {
+          "name": "Interlude 2",
+          "lines": ["A  C#  D  E", "A  A  A  A", "F#m  Bm  D  BDim"]
+        },
+        { "name": "Outro", "repeat": "×2", "lines": ["AM7  F#m  DM7  A-E"] }
+      ],
+      "note": "AM7 = x02120 · DM7 = xx0222 · C#7 = x4342x · BDim = x2313x"
+    },
+    {
+      "id": 7,
+      "title": "Tum Se Hi",
+      "film": "Jab We Met · Mohit Chauhan",
+      "key": "G major",
+      "capo": "No Capo",
+      "strumming": "↓ · ↓↑ · ↑↓↑",
+      "strumming_note": "D DU UDU — clean, mid-tempo feel",
+      "sections": [
+        { "name": "Intro", "lines": ["G  Em  C  D"] },
+        { "name": "Verse", "lines": ["G  D  C  C", "C  D  G  G"] },
+        { "name": "Chorus", "lines": ["D  C  D  C", "G  G"] },
+        { "name": "Bridge", "lines": ["G  G  Bm  Bm", "C  C  D  C"] }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Tera Hone Laga Hoon",
+      "film": "Ajab Prem Ki Ghazab Kahani · Atif Aslam",
+      "key": "G# (G with capo)",
+      "capo": "Fret 1",
+      "strumming": "↓ · ↓↑ · ↑↓↑",
+      "strumming_note": "D DU UDU — smooth and flowing",
+      "sections": [
+        {
+          "name": "Intro",
+          "repeat": "×2",
+          "lines": ["G  G  Em  Em", "G  G  Em  D"]
+        },
+        { "name": "Pre-Chorus", "lines": ["G  Em  C  D", "G  Em  C"] },
+        { "name": "Chorus", "lines": ["G  G  C  C", "G  G  C  D"] },
+        { "name": "Verse", "repeat": "×2", "lines": ["G  Em  C  D", "A  D"] },
+        {
+          "name": "Interlude",
+          "lines": ["G  Em  C  D", "G  Bm  C  D", "C  Em  F"]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Oh Sanam",
+      "film": "Lucky Ali",
+      "key": "G major",
+      "capo": "No Capo",
+      "strumming": "↓ · ↓↑ · ↑↓↑",
+      "strumming_note": "D DU UDU — relaxed, acoustic feel",
+      "sections": [
+        {
+          "name": "Intro",
+          "lines": ["G  D  C  C", "Bm  C  Bm  A#", "A#  A  Am  D", "G  G  G  G"]
+        },
+        { "name": "Main", "lines": ["G  C  A  D", "G  G"] },
+        { "name": "Verse", "lines": ["G-D  C-D", "G-D  C-D"] },
+        { "name": "Chorus", "lines": ["C-D  C-D", "G  G"] },
+        { "name": "Bridge", "lines": ["G  D  C  D", "C  D  C  D", "G  G"] }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Summer of '69",
+      "film": "Bryan Adams",
+      "key": "D major",
+      "capo": "No Capo",
+      "strumming": "↓ ↓ ↑↑↓↓ ↓↑",
+      "strumming_note": "D D UUDD DU — hard driving rock strum · bridge shifts feel",
+      "sections": [
+        { "name": "Verse", "repeat": "×4", "lines": ["D  D  A  A"] },
+        {
+          "name": "Chorus",
+          "lines": ["Bm  A  D  G  ×2", "Bm  A", "B  D  A  A"]
+        },
+        {
+          "name": "Bridge",
+          "lines": ["F  A#  C  A#", "F  A#  C  C", "D  D  A  A  ×2"]
+        }
+      ],
+      "note": "Bridge key shifts to F major — the F and A# are barre chords"
+    },
+    {
+      "id": 11,
+      "title": "Musafir",
+      "film": "Sweetiee Weds NRI · Palak Muchhal",
+      "key": "C major",
+      "capo": "No Capo",
+      "strumming": "↓ · ↓↑ · ↑↓↑",
+      "strumming_note": "D DU UDU — flowing, mid tempo · push chorus harder",
+      "sections": [
+        { "name": "Intro", "lines": ["C  F  F  C"] },
+        {
+          "name": "Verse",
+          "repeat": "×2",
+          "lines": ["C  F  F  C", "Em  F  Em  F-G"]
+        },
+        { "name": "Chorus", "repeat": "×2", "lines": ["C-Am  F", "Am  G"] },
+        { "name": "Interlude 1", "repeat": "×3", "lines": ["Am-F  C"] },
+        {
+          "name": "Interlude 2",
+          "lines": ["Am-F  Am-F", "C-F  C-F", "Am-F  Am-F"]
+        },
+        { "name": "Outro", "repeat": "×6", "lines": ["F  F  Am  G"] }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Kabira",
+      "film": "Yeh Jawaani Hai Deewani · Pritam",
+      "key": "D major",
+      "capo": "No Capo",
+      "strumming": "↓ ↓ ↑↑↓↓ ↓↑",
+      "strumming_note": "D D UUDD — alt D D UUD DUDU · push chorus energy",
+      "sections": [
+        { "name": "Intro", "lines": ["G  D  G  D-Bm", "G  D"] },
+        {
+          "name": "Pre-Chorus",
+          "repeat": "×2",
+          "lines": ["G  D  G  D", "Bm  G  Bm  G-A"]
+        },
+        { "name": "Chorus", "repeat": "×2", "lines": ["D  G  D  G", "Bm  A"] },
+        { "name": "Interlude", "lines": ["G  D  Bm  D"] },
+        { "name": "Bridge", "repeat": "×2", "lines": ["G  D  G  A"] },
+        { "name": "Outro", "repeat": "fade", "lines": ["G  D  ×  fade"] }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Besabriyan",
+      "film": "MS Dhoni · Amaal Mallik",
+      "key": "D major",
+      "capo": "No Capo",
+      "strumming": "↓ ↑↓↑↓ / ↓↓ ↑↑↓ ↓↑↓↑",
+      "strumming_note": "D UDUP-UDUD (verse) · D D UUD DUDU (chorus) · FS: strum all strings together 1-2-4-3",
+      "plucking": {
+        "label": "Finger Plucking — Intro",
+        "strings": [
+          { "string": "E①", "pattern": "· · · ● · · · ●" },
+          { "string": "B②", "pattern": "· · ● · · · ● ·" },
+          { "string": "G③", "pattern": "· ● · · · ● · ·" },
+          { "string": "D④", "pattern": "● · · · ● · · ·" }
+        ],
+        "legend": "p i m a · strings 1-2-4-3 pattern · let ring fully"
+      },
+      "sections": [
+        { "name": "Intro", "repeat": "×2", "lines": ["D  Bm  G  A"] },
+        { "name": "Verse", "repeat": "×2", "lines": ["D  Bm  G  A-D"] },
+        { "name": "Pre-Chorus", "lines": ["Bm-A  G  Bm-A  G"] },
+        { "name": "Chorus", "repeat": "×2", "lines": ["D-A  G  D-A  G"] },
+        {
+          "name": "Interlude",
+          "lines": ["Bm-A  G  Bm-A  G", "Bm-A  Em-A  G-A  D"]
+        },
+        { "name": "Bridge", "repeat": "×2", "lines": ["D  G  D  G"] }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Thinking Out Loud",
+      "film": "Ed Sheeran",
+      "key": "C major",
+      "capo": "Fret 2",
+      "strumming": "↓ ↑· ↓ ↑·",
+      "strumming_note": "D Um D Um — gentle muted upstrokes",
+      "sections": [
+        {
+          "name": "Verse",
+          "repeat": "×4",
+          "lines": ["C-C/E  F-G  C-C/E  F-G"]
+        },
+        {
+          "name": "Pre-Chorus",
+          "lines": ["Dm  G-C  Dm  G", "Dm  G-Am  Dm  G"]
+        },
+        {
+          "name": "Chorus",
+          "lines": ["C-C/E  F-G  C-C/E  F-G  ×2", "Am-G-F-C/E-Dm-G-C"]
+        },
+        { "name": "Solo", "lines": ["C-C/E  F-G  C-C/E  F-G  ×2"] }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Iktara",
+      "film": "Wake Up Sid · Kavita Seth",
+      "key": "G major",
+      "capo": "No Capo",
+      "strumming": "↓↓↓ ↑↑↓ ↓↑↓↑",
+      "strumming_note": "DDD UUD DUDU — outro last line shifts to softer D DDUD",
+      "sections": [
+        { "name": "Intro", "repeat": "×2", "lines": ["G  C  Bm  D"] },
+        { "name": "Verse", "repeat": "×2", "lines": ["G  C  G  C"] },
+        { "name": "Pre-Chorus", "lines": ["G  C  C", "G  C  G  D"] },
+        { "name": "Chorus", "repeat": "×2", "lines": ["G  G  Am  C"] },
+        {
+          "name": "Bridge",
+          "repeat": "×2",
+          "lines": ["G-C  G-C  Am  C", "F  G  G  G"]
+        },
+        {
+          "name": "Outro",
+          "lines": [
+            "G  C  G  C",
+            "Em-D  C-D  Em-D  C-D",
+            "Bm  Bm  C  C",
+            "Am  C  G  G"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Naina",
+      "film": "Dangal · Arijit Singh",
+      "key": "G major",
+      "capo": "Fret 1",
+      "strumming": "↓ ↑↑↓ · ↓ ↑↑↓ ↓ · ↓ ↑↑↓ ↑↓↓↓↑",
+      "strumming_note": "D UUD — D UUD D — D UUD UDDDU",
+      "sections": [
+        { "name": "Intro", "lines": ["G  D  G  D"] },
+        { "name": "Verse", "lines": ["G  D  G  D"] },
+        { "name": "Pre-Chorus", "lines": ["D  Bm  Em  G-A", "D  Bm  Em  A"] },
+        { "name": "Chorus", "lines": ["D  Bm  G  A  ×2", "D  (2nd & 3rd)"] },
+        { "name": "Interlude", "lines": ["D  Bm  G  A  ×2"] },
+        { "name": "Bridge", "lines": ["D  Bm  G  A"] }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "When You're Gone",
+      "film": "Avril Lavigne",
+      "key": "G major",
+      "capo": "No Capo",
+      "strumming": "↓↓↓ ↑↓↑↓ ↓↑↓↑",
+      "strumming_note": "DDD UDUD DUDU — steady pop-rock strum",
+      "sections": [
+        { "name": "Intro", "lines": ["C-Em  C-Em  C-Em  D"] },
+        { "name": "Verse", "repeat": "×2", "lines": ["G-D  Em  C  D"] },
+        { "name": "Pre-Chorus", "lines": ["Am  G/B  C  D"] },
+        { "name": "Chorus", "lines": ["C-Em  D  C-Em  D", "Am-C  G-D  C  D"] },
+        { "name": "Bridge", "lines": ["Bm  C  G  D-B7", "Em  C  A  D"] }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Dooba Dooba",
+      "film": "Silk Route · Mohit Chauhan",
+      "key": "E major",
+      "capo": "Fret 1",
+      "strumming": "↓ ↑↑↓ ↑↑↓ ↓↑ / ↓ ↓ ↑↑↓↓ ↓↑",
+      "strumming_note": "D UUD UUD DU (verse) — D D UUDD DU (chorus)",
+      "sections": [
+        { "name": "Intro", "repeat": "×4", "lines": ["E  A-E  E  A-E"] },
+        {
+          "name": "Chorus",
+          "repeat": "×2",
+          "lines": ["E  A-E  E  A-E", "A-B  A-B  A-B  A-B"]
+        },
+        {
+          "name": "Interlude 1",
+          "lines": ["E  A-E  E  A-E", "E  F#m  A  E  E"]
+        },
+        { "name": "Verse", "lines": ["E  E  A  A", "A-F#  B  Both ×2"] },
+        {
+          "name": "Interlude 2",
+          "lines": ["F#m  G#m  F#m  E  ×2", "E  F#m  F#m  E  E"]
+        },
+        {
+          "name": "Last Chorus",
+          "lines": [
+            "E  A-E  E  A-E  ×2",
+            "A-B  A-B  A-B  A-B",
+            "E  E",
+            "A-B  A-B  A-B  E"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Pehli Nazar Mein",
+      "film": "Race · Atif Aslam",
+      "key": "F# minor",
+      "capo": "No Capo",
+      "strumming": "↓ ↓↑ ↑↓↑",
+      "strumming_note": "D DU UDU — smooth and romantic",
+      "sections": [
+        { "name": "Intro", "lines": ["F#m  E  D  D", "F#m  E  Bm  E"] },
+        {
+          "name": "Verse 1",
+          "lines": [
+            "F#m  E  D  E",
+            "F#m  E  Bm  E",
+            "F#m  E  D  E",
+            "F#m  E  Bm  Bm"
+          ]
+        },
+        { "name": "Chorus", "repeat": "×6", "lines": ["A  E  F#m  D"] },
+        {
+          "name": "Interlude 1",
+          "lines": [
+            "F#m  E  D  D",
+            "F#m  E  Bm  Bm",
+            "F#m  E  D  D",
+            "F#m  E  Bm  E",
+            "A  D  A  E"
+          ]
+        },
+        {
+          "name": "Verse 2",
+          "repeat": "×2 all",
+          "lines": [
+            "A  Bm  C#m  D",
+            "A  Bm  C#m  E",
+            "A  Bm  C#m  D",
+            "E  E  E  E"
+          ]
+        },
+        {
+          "name": "Interlude 2",
+          "lines": [
+            "F#m  E  A  A",
+            "A  F#m  G  G",
+            "A  Bm  C#m  E",
+            "A  A  A  A"
+          ]
+        },
+        {
+          "name": "Outro",
+          "repeat": "×2",
+          "lines": ["F#m  E  D  D", "F#m  E  Bm  E"]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Khamoshiyan",
+      "film": "Khamoshiyan · Arijit Singh",
+      "key": "B minor (Capo → D minor actual)",
+      "capo": "Fret 3",
+      "strumming": "↓↓ ↑↑↓ ↓↑↓↑ / ↓ ↓↑↓↑↓ ↓↑↓↑",
+      "strumming_note": "DD UUD DUDU (main) — D DUDUD DUDU (bridge 2nd rhythm)",
+      "sections": [
+        { "name": "Intro", "lines": ["Bm  Bm  Em  Em"] },
+        { "name": "Verse", "repeat": "×2", "lines": ["Bm  D  F#m  Em"] },
+        { "name": "Pre-Chorus", "lines": ["G  G  A  F#", "F#"] },
+        { "name": "Chorus", "lines": ["G  G  A  D", "G  G  A  D-F#m", "Bm"] },
+        { "name": "Interlude 1", "lines": ["Bm  G  Bm  A", "Bm  G  F#m  Em"] },
+        {
+          "name": "Bridge (2nd rhythm)",
+          "repeat": "×2",
+          "lines": ["Bm  G  Em  Em", "A  A7  D  D"]
+        },
+        { "name": "Interlude 2", "repeat": "×2", "lines": ["Bm  Em  Bm  A-A7"] }
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Tum Ho Toh",
+      "film": "Rock On · Shankar-Ehsaan-Loy",
+      "key": "C major",
+      "capo": "No Capo",
+      "strumming": "↓ ↓ ↓↑ / ↓↓↑ ↑ ↑↓ / ↓ ↓ ↑↑↓↓ ↓↑",
+      "strumming_note": "D D DU (verse) — DDU U UD (chorus) — D D UUDD DU (bridge)",
+      "sections": [
+        { "name": "Verse — Line 1", "lines": ["C  C  Dm  G"] },
+        { "name": "Verse — Line 2", "lines": ["A#  F  Bm  Em-F", "C  C"] },
+        {
+          "name": "Chorus",
+          "lines": [
+            "G  E  Am  F  ×2",
+            "G  (2nd rhythm)",
+            "C  Em  F  C  (3rd rhythm)"
+          ]
+        },
+        {
+          "name": "Bridge (3rd rhythm)",
+          "repeat": "×2",
+          "lines": ["Gm-A#  C  Gm-A#  C"]
+        }
+      ],
+      "note": "GM = 3x0330"
+    },
+    {
+      "id": 22,
+      "title": "Wish You Were Here",
+      "film": "Pink Floyd",
+      "key": "G major",
+      "capo": "No Capo",
+      "strumming": "↓ ↓ ↑↑↓↓ ↓↑",
+      "strumming_note": "D D UUDD DU — iconic, steady pattern · 2 Gs second time chorus",
+      "sections": [
+        { "name": "Intro", "lines": ["G  G  G  G"] },
+        { "name": "Chorus", "lines": ["C  D  Am  G", "D  C  Am  G"] }
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Munjane Manjalli",
+      "film": "Googly · V. Harikrishna",
+      "key": "A major",
+      "capo": "No Capo",
+      "strumming": "↓ ↓↑↓↑ · ↓ ↓↑↓↑",
+      "strumming_note": "D DUDU — D DUDU — flowing Kannada folk-pop feel",
+      "sections": [
+        { "name": "Intro", "lines": ["A  D  A  E", "A  D", "A  A  A  A"] },
+        { "name": "Verse", "repeat": "×2", "lines": ["A  D  A  E"] },
+        {
+          "name": "Pre-Chorus",
+          "lines": ["Bm  D  Bm  E  ×2", "A  D  A  D", "Bm  E"]
+        },
+        {
+          "name": "Chorus",
+          "lines": [
+            "A  D  A  E  ×2",
+            "Bm-D  Bm-D  Bm-D  E",
+            "A  B  A  D  (2nd Chorus extra A D)"
+          ]
+        },
+        { "name": "Interlude", "lines": ["A  D  A  D", "A  D  A  A"] },
+        {
+          "name": "Bridge",
+          "lines": ["G  D  A  A  ×2", "Bm  Bm  D  E", "E  E"]
+        },
+        { "name": "Outro", "repeat": "×2", "lines": ["A  A  D  A"] }
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Churaliya Hai",
+      "film": "Yaarana · Mohammed Rafi",
+      "key": "A minor",
+      "capo": "No Capo",
+      "strumming": "↓ ↓↑ ↑↓↑",
+      "strumming_note": "D DU UDU — classic feel, light touch",
+      "sections": [
+        {
+          "name": "Chorus",
+          "repeat": "×2",
+          "lines": ["Am  Am  G  G", "Am  Am  E  E"]
+        },
+        {
+          "name": "Chorus end",
+          "lines": [
+            "E  E7  E  E7",
+            "A  A",
+            "Am  Am  G  G",
+            "Am  Am  E  E",
+            "Am  Am  G  G",
+            "Am  Am  Am  Am"
+          ]
+        },
+        { "name": "Interlude 1", "lines": ["E  E7  E  E7", "A  A  A  A"] },
+        {
+          "name": "Verse",
+          "lines": ["G  G  Am  Am  ×4", "E  E7  E  E7", "A  A"]
+        },
+        {
+          "name": "Interlude 2",
+          "lines": [
+            "Am  Am",
+            "Am  Am  G  G",
+            "G  G  Am  Am",
+            "Am  Am  G  G",
+            "F  F  Am  Am",
+            "Am  Am"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Chahu Main Ya Na",
+      "film": "Aashiqui 2 · Arijit Singh",
+      "key": "A minor",
+      "capo": "No Capo",
+      "strumming": "↓ ↓↑ ↑↓↑ / ↓ ↓ ↑↓↑↓ ↓↓↑",
+      "strumming_note": "D DU UDU (main) — D D UDUD DDU (verse alt)",
+      "sections": [
+        { "name": "Intro", "lines": ["Am-C  D  F  G"] },
+        {
+          "name": "Chorus",
+          "repeat": "×4 (2nd time ×2)",
+          "lines": ["Am  G  F  G"]
+        },
+        {
+          "name": "Post Chorus",
+          "repeat": "×2",
+          "lines": ["Am-G  G-F  F  G-E"]
+        },
+        { "name": "Interlude 1", "lines": ["Am  Am  F  G"] },
+        { "name": "Verse", "lines": ["C  Am  F  G", "C  F  C  G"] },
+        { "name": "Bridge", "lines": ["C  CSus4-C  C  Em", "Em  F  G  C"] },
+        {
+          "name": "Interlude 2",
+          "lines": [
+            "Am  D  F  G",
+            "Am  A#  F  G  C",
+            "Am  F  G  Em  (last line ×2)"
+          ]
+        },
+        { "name": "Outro", "repeat": "×2", "lines": ["Am  Am  F  G"] }
+      ],
+      "note": "CSus4 = C + pinky on D string fret 3"
+    },
+    {
+      "id": 26,
+      "title": "Husn",
+      "film": "Anuv Jain",
+      "key": "A# / Bb major",
+      "capo": "No Capo",
+      "strumming": "↓ ↓ ↑↓↑↓ ↓↑↓↑",
+      "strumming_note": "D D UDUD DUDU — A7 is the tension chord, let it breathe before Dm resolves",
+      "sections": [
+        { "name": "Intro", "lines": ["A#  F  A7  Dm-C"] },
+        { "name": "Verse", "repeat": "×2", "lines": ["A#  F  A7  Dm-C"] },
+        { "name": "Chorus", "repeat": "×2", "lines": ["A#  F-C  A#  C"] },
+        {
+          "name": "Bridge",
+          "repeat": "×4",
+          "lines": ["A#  Dm  A#  F", "A7  Dm  A#  C", "F  Dm  A#  Csus4-C"]
+        },
+        { "name": "Outro", "repeat": "×2", "lines": ["A#  F  A7  Dm-C"] }
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Choo Lo",
+      "film": "Local Train",
+      "key": "E major",
+      "capo": "No Capo",
+      "strumming": "↓ ↑↓↑↓ ↑↓↑↓ ↓↑",
+      "strumming_note": "D UDUD UDUD DU — driving indie-rock energy",
+      "sections": [
+        { "name": "Verse", "lines": ["E-B  A-B  E-B  A-B"] },
+        {
+          "name": "Chorus",
+          "repeat": "×2",
+          "lines": ["C#m-B  A-B  C#m-B  A-B"]
+        },
+        { "name": "Solo 1", "lines": ["E-B  A-B  C#m  B", "A  B"] },
+        {
+          "name": "Bridge",
+          "repeat": "×2",
+          "lines": ["C#m-B  A-B  C#m-B  A-B"]
+        },
+        { "name": "Solo 2", "repeat": "×2", "lines": ["E-B  A-B  C#m-B  A-B"] },
+        { "name": "Outro", "lines": ["E  B  A  B"] }
+      ]
+    },
+    {
+      "id": 28,
+      "title": "Dil Hai Ki",
+      "film": "Dil Hai Ki Manta Nahin · Kumar Sanu",
+      "key": "D major",
+      "capo": "No Capo",
+      "strumming": "4-1  3  2  1 — 2  3  2",
+      "strumming_note": "Fingerstyle plucking pattern: 4-1 3 2 1 - 2 3 2",
+      "sections": [
+        { "name": "Intro", "repeat": "×2", "lines": ["D  Am  G  G"] },
+        {
+          "name": "Chorus",
+          "lines": [
+            "D  C  G  G  ×2",
+            "D  D  Am  Am",
+            "G  Am  C  C",
+            "D  C  G  G"
+          ]
+        },
+        { "name": "Interlude", "repeat": "×2", "lines": ["D  Am  G  G"] },
+        {
+          "name": "Bridge",
+          "lines": [
+            "D  D  G  G",
+            "Am  C  D  D  ×2 both",
+            "D  G  Am  C",
+            "G  Cadd9  D  D"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "title": "Love You Zindagi",
+      "film": "Dear Zindagi · Amit Trivedi",
+      "key": "D major",
+      "capo": "Fret 1",
+      "strumming": "↓↓↓ ↓↑↓↓↓ ↓↑",
+      "strumming_note": "DDD DUDDD DU — alt D UDD UDD DU — upbeat feel, push energy on chorus",
+      "sections": [
+        { "name": "Intro", "lines": ["D-Bm  G-A  D-Bm  G-A"] },
+        { "name": "Verse", "repeat": "×2", "lines": ["D  Bm  A  Em"] },
+        { "name": "Pre-Chorus", "repeat": "×2", "lines": ["D  G  Bm  A"] },
+        { "name": "Chorus", "repeat": "×2", "lines": ["D  A  Bm  G"] },
+        { "name": "Interlude", "repeat": "×4", "lines": ["D  A  Bm  G"] },
+        { "name": "Bridge", "lines": ["D  Bm  G  A  ×2", "D  Em  F#m  G"] },
+        { "name": "Outro", "lines": ["D  G  Bm  A  ×2", "D  G  Bm  A  ×4"] }
+      ]
+    },
+    {
+      "id": 30,
+      "title": "Woh Lamhe",
+      "film": "Zeher · KK",
+      "key": "F# minor",
+      "capo": "Fret 2",
+      "strumming": "↓ ↑↓↑↓ ↑↓↑↓↑",
+      "strumming_note": "D UDUD UDUDU — flowing, let chords ring · DM7 = xx0222",
+      "sections": [
+        {
+          "name": "Intro",
+          "lines": ["F#m  C#m  DM7  E", "F#m  F#m  DM7  E", "F#m  F#m  E  E"]
+        },
+        {
+          "name": "Chorus",
+          "lines": ["F#m  F#m  E  E", "DM7  DM7  E  E", "DM7  DM7"]
+        },
+        { "name": "Interlude", "lines": ["F#m  F#m  F#m  F#m"] },
+        {
+          "name": "Verse",
+          "lines": [
+            "F#m  F#m  ESus4  E",
+            "DM7  DM7  E  E",
+            "F#m  F#m  E  E",
+            "D  D  E  F#m"
+          ]
+        },
+        {
+          "name": "Interlude 2",
+          "lines": [
+            "F#m  C#m  DM7  C#m",
+            "F#m  C#m  D  E",
+            "F#m  DM7  F#m  DM7",
+            "F#m  D  Bm  E"
+          ]
+        },
+        {
+          "name": "Outro",
+          "lines": ["F#m  C#m  D  E  ×2", "F#m  F#m  D  E  ×2", "F#m  D-E  F#m"]
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "title": "Socha Hai",
+      "film": "Rock On · KK",
+      "key": "D major",
+      "capo": "No Capo",
+      "strumming": "↓↓ ↑↓↑↓↓ ↓↑ / ↓ ↓↑ ↑↓↑",
+      "strumming_note": "DD UDUDD DU (main) — D DU UDU (bridge alt) · D5 = xx023x",
+      "sections": [
+        { "name": "Intro", "lines": ["D5"] },
+        { "name": "Verse", "repeat": "×4", "lines": ["D  G  Bm  A"] },
+        { "name": "Chorus", "lines": ["D  G  D  G", "D  G  D  D"] },
+        {
+          "name": "Bridge (Ryth 2)",
+          "lines": ["C  Em  C  Em", "D-Em  C-G  D-Em  C  (single strum)"]
+        },
+        { "name": "Solo", "repeat": "×4", "lines": ["D  G  Bm  A"] },
+        {
+          "name": "Last Chorus",
+          "lines": [
+            "D  G  D  G",
+            "D  G  D  D",
+            "D  G  D  G",
+            "D  G  D  CAdd9-G/B"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "title": "Maeri",
+      "film": "Euphoria · Palash Sen",
+      "key": "Eb major (D with capo)",
+      "capo": "Fret 1",
+      "strumming": "↓ ↑ / ↓ ↓↑ ↑↓↑ / ↓ ↓ ↑↓↑↓ ↑↓↑",
+      "strumming_note": "D U (intro) — D DU UDU (pre) — D D UDUD UDU (interlude)",
+      "sections": [
+        {
+          "name": "Open Intro",
+          "lines": ["DSus2  A  G  A", "DSus2  C  DSus2"]
+        },
+        {
+          "name": "Pre-Chorus",
+          "repeat": "×2 (Ryth 1)",
+          "lines": ["DSus2  A  C  G"]
+        },
+        {
+          "name": "Chorus",
+          "lines": [
+            "DSus2  DSus2  CAdd9  CAdd9",
+            "A#  CAdd9  DSus2  DSus2",
+            "CAdd9  CAdd9  G  G",
+            "A#  CAdd9  DSus2  DSus2",
+            "DSus2  DSus2"
+          ]
+        },
+        { "name": "Interlude 1", "lines": ["DSus2  ×4"] },
+        { "name": "Verse 2", "lines": ["DSus2  DSus2  CAdd9  CAdd9  G  G"] },
+        {
+          "name": "Bridge 1",
+          "repeat": "×2",
+          "lines": ["C  C  G  G", "DSus2  ×4"]
+        },
+        {
+          "name": "Interlude 2 (Ryth 3)",
+          "lines": [
+            "CAdd9  G  DSus2  DSus2",
+            "CAdd9  CAdd9  G  G",
+            "DSus2  ×4",
+            "DSus2  DSus2"
+          ]
+        },
+        {
+          "name": "Bridge 2",
+          "lines": [
+            "DSus2  ×2",
+            "DSus2  A  DSus2  ×2",
+            "D  DSus4  D  DSus4",
+            "F  C  A  DSus2",
+            "A  A  G  G",
+            "A  A  G  F"
+          ]
+        }
+      ],
+      "note": "Dsus2 = xx0230"
+    },
+    {
+      "id": 33,
+      "title": "Just Maath Maathalli",
+      "film": "Paramathma · V. Harikrishna",
+      "key": "F major",
+      "capo": "No Capo",
+      "strumming": "↓↓↓ ↑↑↓↓ ↓↑",
+      "strumming_note": "DDD UUDD DU — driving Kannada pop feel",
+      "sections": [
+        { "name": "Intro", "lines": ["F-C  A#  F-C  A#"] },
+        {
+          "name": "Verse",
+          "repeat": "×2",
+          "lines": ["F-C  A#  F-C  A#", "F  A#  F  A#"]
+        },
+        { "name": "Pre-Chorus", "lines": ["A#-Gm  A#-Am  A#-C"] },
+        {
+          "name": "Chorus",
+          "lines": ["F  A#  F  A#", "F  A#  F", "A#-Gm  A#-Am  A#  C"]
+        },
+        { "name": "Interlude", "lines": ["F-C  A#  F-C  A#", "F-C  A#  F"] },
+        {
+          "name": "Bridge",
+          "lines": ["F  F  F", "A#-Am-C", "F  F  F", "A#-F"]
+        },
+        { "name": "Outro", "lines": ["F-C  A#  F-C  A#", "F-C  A#  F"] }
+      ]
+    },
+    {
+      "id": 34,
+      "title": "Minchagi Neenu Baralu",
+      "film": "Hudugaru · V. Harikrishna",
+      "key": "B minor",
+      "capo": "Fret 2",
+      "strumming": "↓· ↑ ↑·",
+      "strumming_note": "DmU Um — muted strum technique",
+      "sections": [
+        { "name": "Intro", "repeat": "×2", "lines": ["Bm  F#  G  F#"] },
+        {
+          "name": "Chorus",
+          "lines": [
+            "F#  Bm-Em  Em  F#",
+            "Bm  Bm-Em  Em  F#",
+            "D  D  G  G",
+            "F#  F#  Bm"
+          ]
+        },
+        {
+          "name": "Post Chorus",
+          "lines": ["F#  Bm-Em  Em  F#", "Bm  Bm-Em  Em  F#"]
+        },
+        {
+          "name": "Interlude 1",
+          "lines": [
+            "Bm  Bm  F#  F#",
+            "D  D  F#  F#",
+            "B  B  Em  Em",
+            "A  A  D  D"
+          ]
+        },
+        {
+          "name": "Verse 1",
+          "lines": [
+            "Bm  Bm  Bm-B  Em",
+            "Em  Em  F#  Bm  ×2",
+            "Bm  F#  F#  G",
+            "Bm  Bm  Em  Bm"
+          ]
+        },
+        {
+          "name": "Interlude 2",
+          "lines": ["F#", "D  DM7  Bm  A", "G  D  Em  A", "A#  Bm  A  G"]
+        },
+        {
+          "name": "Verse 2",
+          "lines": [
+            "D  Bm  Bm-B  Em",
+            "Em  Em  F#  Bm",
+            "Bm  F#  F#  G",
+            "Bm  Bm  Em  Bm",
+            "F#"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "title": "White Flag",
+      "film": "Dido",
+      "key": "F major",
+      "capo": "No Capo",
+      "strumming": "↓↓↓ ↑↓↑↓ ↓↑↓↑",
+      "strumming_note": "DDD UDUD DUDU — steady, emotive strum",
+      "sections": [
+        { "name": "Intro", "lines": ["F  F  Am  Am"] },
+        { "name": "Verse", "repeat": "×2", "lines": ["Dm  Dm  Am  Am"] },
+        { "name": "Pre-Chorus", "lines": ["C  C  Gm  Am"] },
+        { "name": "Chorus", "lines": ["A#  F  Gm  Dm", "A#  F  C  Gm"] },
+        { "name": "Bridge", "lines": ["F  F  Am  Am", "Gm  Gm  C  C"] }
+      ]
+    },
+    {
+      "id": 36,
+      "title": "Kairiyat Poocho",
+      "film": "Chhichhore · Arijit Singh",
+      "key": "C minor (A minor with capo)",
+      "capo": "Fret 3",
+      "strumming": "↓↑↓↑· ↑↓·",
+      "strumming_note": "DUDUm UDm — muted upstrokes give it the skip feel",
+      "sections": [
+        { "name": "Intro", "repeat": "×3", "lines": ["Am  F  Am  F-G"] },
+        {
+          "name": "Chorus",
+          "repeat": "×2",
+          "lines": ["Am  Am  F  F", "G  Em  C  C-G"]
+        },
+        {
+          "name": "Post Chorus",
+          "lines": ["D  D  F  F", "G  Em  E  E", "C  Em  Am  F-G"]
+        },
+        {
+          "name": "Verse",
+          "repeat": "×2",
+          "lines": ["Am  Am  F  F", "Dm  Dm  G  E"]
+        },
+        { "name": "Interlude", "lines": ["Am  F  Am  F-G  ×3", "Am"] }
+      ]
+    },
+    {
+      "id": 37,
+      "title": "Dil Ko Tumse Pyaar Hua",
+      "film": "Rehnaa Hai Terre Dil Mein · Harris Jayaraj",
+      "key": "A minor",
+      "capo": "No Capo",
+      "strumming": "↓ · ↓↑ ↓↑ ↓↑ · ↓ ↓↑ ↓↑",
+      "strumming_note": "D _ DU DU DU _ D DU DU (_ = muted) · open DU shift on Am",
+      "sections": [
+        { "name": "Intro", "lines": ["Am  G  F  C"] },
+        {
+          "name": "Chorus",
+          "repeat": "×2",
+          "lines": ["Am-Dm  G-C  F-G  C-E7", "Dm-Am  Dm-Am  A#-F  E-E"]
+        },
+        { "name": "Interlude 1", "lines": ["Am  Am  Am  Am"] },
+        {
+          "name": "Verse",
+          "lines": [
+            "Am  Am  Am  Am",
+            "Am-G  F-E7  Am-G  F-E7",
+            "Am  Am  Am  Am"
+          ]
+        },
+        {
+          "name": "Interlude 2",
+          "lines": [
+            "Am  Am  Am  Am",
+            "Am-Em  F-C  Dm  G-E7",
+            "Am-G  F-Am  Am-G  F-Am"
+          ]
+        }
+      ],
+      "note": "Dm = Bm+3 · G = F+2 · C = A+3 (capo alternative positions)"
+    },
+    {
+      "id": 38,
+      "title": "Neele Neele Ambar",
+      "film": "Kalaakaar · Kishore Kumar",
+      "key": "D minor",
+      "capo": "No Capo",
+      "strumming": "↓ ↓↑ ↑↓↑",
+      "strumming_note": "D DU UDU — classic Bollywood feel",
+      "sections": [
+        {
+          "name": "Intro",
+          "lines": [
+            "Dm",
+            "C  Dm  C  Dm",
+            "Dm  C  A#  Dm",
+            "Dm  Dm  Dm  Dm",
+            "Dm  C  A#  Dm"
+          ]
+        },
+        {
+          "name": "Chorus",
+          "repeat": "×2",
+          "lines": ["C  C  Dm  Dm", "Dm  Dm  C  C", "A#  A"]
+        },
+        {
+          "name": "Verse",
+          "repeat": "×2 both",
+          "lines": ["Dm  Dm  C  C", "A#  A#  Gm  A", "Dm"]
+        },
+        {
+          "name": "Interlude 1/3",
+          "lines": [
+            "Dm  Dm  C  C",
+            "A#  Gm  A#  A",
+            "Dm  Dm  C  C",
+            "C  C  Dm  Dm"
+          ]
+        },
+        {
+          "name": "Interlude 2",
+          "lines": [
+            "Dm  Dm  Dm  Dm  ×2",
+            "A#  A#  A#  A#",
+            "A#  A#  Dm  Dm",
+            "Dm  Dm  C  C",
+            "C  C  Dm  Dm"
+          ]
+        },
+        { "name": "Outro", "repeat": "×2", "lines": ["C  C  Dm  Dm", "Dm"] }
+      ]
+    },
+    {
+      "id": 39,
+      "title": "Bombe Heluthaite",
+      "film": "Mungaru Male · V. Harikrishna",
+      "key": "G# / Ab major",
+      "capo": "Fret 4",
+      "strumming": "↓ · ↓↑ · ↑↓↑",
+      "strumming_note": "D DU UDU — gentle feel · capo 4 = Ab / G# in actual pitch",
+      "sections": [
+        { "name": "Chorus", "repeat": "×2", "lines": ["Em  D  C  D"] },
+        { "name": "Verse", "lines": ["Em  Am  Em  Am", "Em  D  C  D  ×2"] }
+      ]
+    },
+    {
+      "id": 40,
+      "title": "Paravashanadenu",
+      "film": "Ranavikrama · Arjun Janya",
+      "key": "G major",
+      "capo": "Fret 3",
+      "strumming": "↓↓↓ ↑↓↑↓ ↓↓↑",
+      "strumming_note": "DDD UDUD DDU — capo 3 = Bb actual · strong rhythmic groove",
+      "sections": [
+        { "name": "Chorus", "lines": ["Em  B  Em  Am"] },
+        { "name": "Verse", "repeat": "×2", "lines": ["Em  C  Am  D"] }
+      ]
+    },
+    {
+      "id": 41,
+      "title": "Tere Sang Yara",
+      "film": "Rustom · Arko",
+      "key": "G# / Ab major",
+      "capo": "Fret 1",
+      "strumming": "↓ ↓ ↑↓↑↓ ↑↓↑↓ ↓↑",
+      "strumming_note": "D D UDUD UDUD DU — driving, pop-rock feel",
+      "sections": [
+        { "name": "Intro", "repeat": "×2", "lines": ["G  G  Am  Am"] },
+        { "name": "Verse", "lines": ["G  C  Am  G", "Bm  C  Am  Em"] },
+        { "name": "Bridge", "repeat": "×2", "lines": ["G  Bm  Am  D"] }
+      ]
+    }
+  ]
+}
