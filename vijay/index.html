@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hi Vijay</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: rgba(255,255,255,0.08);
+      --text: #eef2ff;
+      --muted: #b8c0e0;
+      --accent: #7c5cff;
+      --accent2: #2dd4bf;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at top, #17203f 0%, var(--bg) 55%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 24px;
+    }
+    .card {
+      max-width: 760px;
+      width: 100%;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      padding: 40px 32px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+    .eyebrow {
+      color: var(--accent2);
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(40px, 8vw, 72px);
+      line-height: 0.95;
+    }
+    h1 span { color: var(--accent); }
+    p {
+      margin: 14px 0;
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .footer {
+      margin-top: 28px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .footer strong { color: var(--text); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="eyebrow">abhi.hebbar.me</div>
+    <h1>Hi <span>Vijay</span> 👋</h1>
+    <p>
+      Abhi made me create this page for you, which means you are now officially important enough to have a dedicated spot on his site.
+    </p>
+    <p>
+      This is your tiny corner of the internet for today. Hope you're doing well, and I hope Abhi is behaving himself.
+    </p>
+    <div class="footer">
+      Built by <strong>A</strong>, under direct boss instruction.
+    </div>
+  </main>
+</body>
+</html>
